@@ -1,10 +1,27 @@
 {
-	"devDependencies": {
-		"changeset": "^0.2.6",
-		"npm-run-all": "^4.1.5"
-	},
 	"name": "tauri-search-monorepo",
+	"version": "0.0.1",
+	"private": false,
+	"keywords": [
+		"land"
+	],
+	"homepage": "HTTPS://GitHub.Com/CodeEditorLand/TauriSearch#readme",
+	"bugs": {
+		"url": "HTTPS://GitHub.Com/CodeEditorLand/TauriSearch/issues"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+HTTPS://github.com/CodeEditorLand/TauriSearch.git"
+	},
+	"license": "SEE LICENSE IN LICENSE",
+	"author": {
+		"name": "🌆 — Land —",
+		"email": "Land@PlayForm.Cloud",
+		"url": "HTTPS://Land.PlayForm.Cloud"
+	},
+	"type": "module",
 	"scripts": {
+		"Document": "Document 'Source/**/*.ts'",
 		"build": "run-p build:*",
 		"build:cli": "pnpm -C ./packages/tauri-search run build:cli",
 		"build:npm": "pnpm -C ./packages/tauri-search run build:npm",
@@ -29,6 +46,7 @@
 		"npm": "pnpm -C ./packages/tauri-search run watch:npm",
 		"npm:test": "pnpm -C ./packages/tauri-search run test",
 		"ping": "npx http GET localhost:7700/health --timeout 2",
+		"prepublishOnly": "Build 'Source/**/*.ts'",
 		"prune": "docker system prune",
 		"ps": "docker compose ps",
 		"push-prose": "pnpm -C ./packages/tauri-search run push-prose",
@@ -54,5 +72,14 @@
 		"watch:prep": "pnpm -C ./packages/tauri-search run build:npm",
 		"watch:rest": "run-p watch:tauri-search watch:docs",
 		"watch:tauri-search": "pnpm -C ./packages/tauri-search run watch"
+	},
+	"devDependencies": {
+		"@playform/build": "0.0.7",
+		"@playform/document": "0.0.6",
+		"changeset": "^0.2.6",
+		"npm-run-all": "^4.1.5"
+	},
+	"publishConfig": {
+		"access": "public"
 	}
 }

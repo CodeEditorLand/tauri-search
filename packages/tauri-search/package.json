@@ -1,32 +1,32 @@
 {
-	"bin": {},
-	"dependencies": {
-		"@types/html-to-text": "^8.0.1",
-		"axios": "^0.25.0",
-		"dotenv": "^16.0.0",
-		"fast-glob": "^3.2.11",
-		"gray-matter": "^4.0.3",
-		"html-to-text": "^8.1.0",
-		"inferred-types": "^0.18.4",
-		"native-dash": "^1.22.0",
-		"simple-markdown-2": "^0.7.5"
-	},
+	"name": "tauri-search",
+	"version": "0.0.1",
+	"private": false,
 	"description": "Search Engine for Tauri website",
-	"devDependencies": {
-		"@octokit/types": "^6.34.0",
-		"@type-challenges/utils": "^0.1.1",
-		"@types/markdown-it": "^12.2.3",
-		"@types/node": "^14.18.12",
-		"changeset": "^0.2.6",
-		"fx": "^20.0.2",
-		"npm-run-all": "^4.1.5",
-		"rimraf": "^3.0.2",
-		"tsup": "^5.11.13"
+	"keywords": [
+		"land"
+	],
+	"homepage": "HTTPS://GitHub.Com/CodeEditorLand/TauriSearch#readme",
+	"bugs": {
+		"url": "HTTPS://GitHub.Com/CodeEditorLand/TauriSearch/issues"
 	},
+	"repository": {
+		"type": "git",
+		"url": "git+HTTPS://github.com/CodeEditorLand/TauriSearch.git"
+	},
+	"license": "SEE LICENSE IN LICENSE",
+	"author": {
+		"name": "🌆 — Land —",
+		"email": "Land@PlayForm.Cloud",
+		"url": "HTTPS://Land.PlayForm.Cloud"
+	},
+	"type": "module",
 	"main": "dist/index.cjs",
 	"module": "dist/index.js",
-	"name": "tauri-search",
+	"types": "dist/index.d.ts",
+	"bin": {},
 	"scripts": {
+		"Document": "Document 'Source/**/*.ts'",
 		"build": "run-p build:*",
 		"build:cli": "tsup src/cli/*.ts --format=esm,cjs --clean --sourcemap -d bin",
 		"build:npm": "tsup src/index.ts --dts --format=esm,cjs  --sourcemap --clean -d dist ",
@@ -38,6 +38,7 @@
 		"drop-indexes": "node bin/drop-indexes.cjs",
 		"full-update": "run-s drop-indexes clear-caches rebuild-caches create-indexes push-consolidated push-prose push-repos push-typescript",
 		"full-update:staging": "NODE_ENV=staging pnpm run full-update",
+		"prepublishOnly": "Build 'Source/**/*.ts'",
 		"prune": "docker system prune",
 		"push-caches": "node bin/push-cache.cjs",
 		"push-consolidated": "node bin/push-consolidated.cjs",
@@ -58,5 +59,31 @@
 		"watch:cli": "tsup src/cli/*.ts --format=esm,cjs --sourcemap -d bin --watch",
 		"watch:npm": "tsup src/index.ts --dts --format=esm,cjs  --sourcemap -d dist --watch"
 	},
-	"types": "dist/index.d.ts"
+	"dependencies": {
+		"@types/html-to-text": "^8.0.1",
+		"axios": "^0.25.0",
+		"dotenv": "^16.0.0",
+		"fast-glob": "^3.2.11",
+		"gray-matter": "^4.0.3",
+		"html-to-text": "^8.1.0",
+		"inferred-types": "^0.18.4",
+		"native-dash": "^1.22.0",
+		"simple-markdown-2": "^0.7.5"
+	},
+	"devDependencies": {
+		"@octokit/types": "^6.34.0",
+		"@playform/build": "0.0.7",
+		"@playform/document": "0.0.6",
+		"@type-challenges/utils": "^0.1.1",
+		"@types/markdown-it": "^12.2.3",
+		"@types/node": "^14.18.12",
+		"changeset": "^0.2.6",
+		"fx": "^20.0.2",
+		"npm-run-all": "^4.1.5",
+		"rimraf": "^3.0.2",
+		"tsup": "^5.11.13"
+	},
+	"publishConfig": {
+		"access": "public"
+	}
 }

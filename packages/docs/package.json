@@ -1,4 +1,38 @@
 {
+	"version": "0.0.1",
+	"private": false,
+	"keywords": [
+		"land"
+	],
+	"homepage": "HTTPS://GitHub.Com/CodeEditorLand/TauriSearch#readme",
+	"bugs": {
+		"url": "HTTPS://GitHub.Com/CodeEditorLand/TauriSearch/issues"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+HTTPS://github.com/CodeEditorLand/TauriSearch.git"
+	},
+	"license": "SEE LICENSE IN LICENSE",
+	"author": {
+		"name": "🌆 — Land —",
+		"email": "Land@PlayForm.Cloud",
+		"url": "HTTPS://Land.PlayForm.Cloud"
+	},
+	"type": "module",
+	"scripts": {
+		"Document": "Document 'Source/**/*.ts'",
+		"build": "vite-ssg build",
+		"clean": "rimraf dist/*",
+		"dev": "vite --port 3333 --open",
+		"prepublishOnly": "Build 'Source/**/*.ts'",
+		"preview": "vite preview",
+		"preview-https": "serve dist",
+		"start": "pnpm run dev",
+		"test:dev": "vitest dev",
+		"test:e2e": "cypress open",
+		"test:unit": "vitest",
+		"test:watch": "vitest watch"
+	},
 	"dependencies": {
 		"date-fns": "^2.28.0",
 		"docs-searchbar.js": "^2.1.0",
@@ -12,6 +46,8 @@
 	"devDependencies": {
 		"@antfu/eslint-config": "^0.16.1",
 		"@iconify/json": "^2.0.36",
+		"@playform/build": "0.0.7",
+		"@playform/document": "0.0.6",
 		"@types/markdown-it-link-attributes": "^3.0.1",
 		"@types/nprogress": "^0.2.0",
 		"critters": "^0.0.16",
@@ -26,16 +62,7 @@
 		"unplugin-auto-import": "^0.5.11",
 		"unplugin-icons": "^0.13.1"
 	},
-	"scripts": {
-		"build": "vite-ssg build",
-		"clean": "rimraf dist/*",
-		"dev": "vite --port 3333 --open",
-		"preview": "vite preview",
-		"preview-https": "serve dist",
-		"start": "pnpm run dev",
-		"test:dev": "vitest dev",
-		"test:e2e": "cypress open",
-		"test:unit": "vitest",
-		"test:watch": "vitest watch"
+	"publishConfig": {
+		"access": "public"
 	}
 }
