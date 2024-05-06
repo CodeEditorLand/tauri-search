@@ -45,7 +45,7 @@
 	},
 	"devDependencies": {
 		"@antfu/eslint-config": "2.16.1",
-		"@iconify/json": "2.2.205",
+		"@iconify/json": "2.2.207",
 		"@playform/build": "0.0.7",
 		"@playform/document": "0.0.6",
 		"@types/markdown-it-link-attributes": "3.0.5",
