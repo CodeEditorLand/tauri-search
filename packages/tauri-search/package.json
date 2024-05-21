@@ -38,25 +38,25 @@
 		"watch:npm": "tsup src/index.ts --dts --format=esm,cjs  --sourcemap -d dist --watch"
 	},
 	"dependencies": {
-		"@types/html-to-text": "8.0.1",
-		"axios": "0.25.0",
-		"dotenv": "16.0.0",
-		"fast-glob": "3.2.11",
+		"@types/html-to-text": "9.0.4",
+		"axios": "1.7.1",
+		"dotenv": "16.4.5",
+		"fast-glob": "3.3.2",
 		"gray-matter": "4.0.3",
-		"html-to-text": "8.1.0",
-		"inferred-types": "0.18.4",
-		"native-dash": "1.22.0",
+		"html-to-text": "9.0.5",
+		"inferred-types": "0.42.1",
+		"native-dash": "1.25.0",
 		"simple-markdown-2": "0.7.5"
 	},
 	"devDependencies": {
-		"@octokit/types": "6.34.0",
+		"@octokit/types": "13.5.0",
 		"@type-challenges/utils": "0.1.1",
-		"@types/markdown-it": "12.2.3",
-		"@types/node": "14.18.12",
+		"@types/markdown-it": "14.1.1",
+		"@types/node": "20.12.12",
 		"changeset": "0.2.6",
-		"fx": "20.0.2",
+		"fx": "34.0.0",
 		"npm-run-all": "4.1.5",
-		"rimraf": "3.0.2",
-		"tsup": "5.11.13"
+		"rimraf": "5.0.7",
+		"tsup": "8.0.2"
 	}
 }
