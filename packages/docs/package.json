@@ -23,7 +23,7 @@
 	},
 	"devDependencies": {
 		"@antfu/eslint-config": "2.18.1",
-		"@iconify/json": "2.2.212",
+		"@iconify/json": "2.2.213",
 		"@types/markdown-it-link-attributes": "3.0.5",
 		"@types/nprogress": "0.2.3",
 		"critters": "0.0.22",
