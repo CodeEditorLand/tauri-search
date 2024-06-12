@@ -19,10 +19,10 @@
 		"nprogress": "0.2.0",
 		"pinia": "2.1.7",
 		"prism-theme-vars": "0.2.5",
-		"tauri-search": "workspace:*"
+		"tauri-search": "0.0.1"
 	},
 	"devDependencies": {
-		"@antfu/eslint-config": "2.21.0",
+		"@antfu/eslint-config": "2.21.1",
 		"@iconify/json": "2.2.218",
 		"@types/markdown-it-link-attributes": "3.0.5",
 		"@types/nprogress": "0.2.3",
