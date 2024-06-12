@@ -52,7 +52,7 @@
 		"watch:tauri-search": "pnpm -C ./packages/tauri-search run watch"
 	},
 	"devDependencies": {
-		"changeset": "0.2.6",
-		"npm-run-all": "4.1.5"
+		"changeset": "^0.2.6",
+		"npm-run-all": "^4.1.5"
 	}
 }
