@@ -23,10 +23,10 @@
 	},
 	"devDependencies": {
 		"@antfu/eslint-config": "2.21.1",
-		"@iconify/json": "2.2.222",
+		"@iconify/json": "2.2.223",
 		"@types/markdown-it-link-attributes": "3.0.5",
 		"@types/nprogress": "0.2.3",
-		"critters": "0.0.22",
+		"critters": "0.0.24",
 		"cross-env": "7.0.3",
 		"dotenv": "16.4.5",
 		"https-localhost": "4.7.1",
