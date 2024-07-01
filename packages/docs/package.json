@@ -22,7 +22,7 @@
 		"tauri-search": "workspace:*"
 	},
 	"devDependencies": {
-		"@antfu/eslint-config": "2.21.1",
+		"@antfu/eslint-config": "2.21.2",
 		"@iconify/json": "2.2.223",
 		"@types/markdown-it-link-attributes": "3.0.5",
 		"@types/nprogress": "0.2.3",
