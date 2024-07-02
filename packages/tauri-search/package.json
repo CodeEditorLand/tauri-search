@@ -44,7 +44,7 @@
 		"fast-glob": "3.3.2",
 		"gray-matter": "4.0.3",
 		"html-to-text": "9.0.5",
-		"inferred-types": "0.45.4",
+		"inferred-types": "0.46.1",
 		"native-dash": "1.25.0",
 		"simple-markdown-2": "0.7.5"
 	},
