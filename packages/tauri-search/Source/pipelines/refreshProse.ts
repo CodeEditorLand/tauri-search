@@ -1,6 +1,6 @@
 import axios from "axios";
 import { existsSync, mkdirSync } from "fs";
-import { join } from "node:path";
+import { join } from "path";
 import { parseMarkdown } from "~/ast/parseMarkdown";
 import { ProseMapper } from "~/mappers";
 import { IProseModel } from "~/models/ProseModel";

@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-import process from "node:process";
+import process from "process";
 import { parseTypescriptAst } from "~/ast/parseTypescriptAst";
 import { TypescriptMapper } from "~/mappers/TypescriptMapper";
 
