@@ -1,16 +1,4 @@
 {
-	"scripts": {
-		"build": "vite-ssg build",
-		"clean": "rimraf dist/*",
-		"dev": "vite --port 3333 --open",
-		"preview": "vite preview",
-		"preview-https": "serve dist",
-		"start": "pnpm run dev",
-		"test:dev": "vitest dev",
-		"test:e2e": "cypress open",
-		"test:unit": "vitest",
-		"test:watch": "vitest watch"
-	},
 	"dependencies": {
 		"date-fns": "3.6.0",
 		"docs-searchbar.js": "2.5.0",
@@ -37,5 +25,17 @@
 		"meili-searchbar": "2.2.1",
 		"unplugin-auto-import": "0.18.0",
 		"unplugin-icons": "0.19.0"
+	},
+	"scripts": {
+		"build": "vite-ssg build",
+		"clean": "rimraf dist/*",
+		"dev": "vite --port 3333 --open",
+		"preview": "vite preview",
+		"preview-https": "serve dist",
+		"start": "pnpm run dev",
+		"test:dev": "vitest dev",
+		"test:e2e": "cypress open",
+		"test:unit": "vitest",
+		"test:watch": "vitest watch"
 	}
 }
