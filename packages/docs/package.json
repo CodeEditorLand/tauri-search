@@ -22,20 +22,20 @@
 		"tauri-search": "workspace:*"
 	},
 	"devDependencies": {
-		"@antfu/eslint-config": "2.23.0",
-		"@iconify/json": "2.2.229",
+		"@antfu/eslint-config": "2.23.2",
+		"@iconify/json": "2.2.230",
 		"@types/markdown-it-link-attributes": "3.0.5",
 		"@types/nprogress": "100.0.26-alpha",
 		"critters": "0.0.24",
 		"cross-env": "7.0.3",
 		"dotenv": "16.4.5",
 		"https-localhost": "4.7.1",
-		"jsdom": "24.1.0",
+		"jsdom": "24.1.1",
 		"markdown-it": "14.1.0",
 		"markdown-it-link-attributes": "4.0.1",
 		"markdown-it-prism": "2.3.0",
 		"meili-searchbar": "2.2.1",
-		"unplugin-auto-import": "0.18.0",
+		"unplugin-auto-import": "0.18.2",
 		"unplugin-icons": "0.19.0"
 	}
 }
