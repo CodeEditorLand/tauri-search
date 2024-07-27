@@ -1,30 +1,30 @@
 {
-  "folders": [
-    {
-      "name": "✨ root",
-      "path": "."
-    },
-    {
-      "name": "📦 tauri-search",
-      "path": "packages/tauri-search"
-    },
-    {
-      "name": "📚 Docs",
-      "path": "packages/docs"
-    },
-    {
-      "name": "🦀 scraper",
-      "path": "packages/scraper"
-    }
-  ],
-  "settings": {
-    "monorepoWorkspace.includeRoot": true,
-    "i18n-ally.keystyle": "nested",
-    "yaml.schemas": {
-      "https://json.schemastore.org/github-action.json": [
-        "file:///Volumes/Coding/playground/t/tauri-search/.github/workflows/atomic/build.yml",
-        "file:///Volumes/Coding/playground/t/tauri-search/.github/workflows/atomic/lint.yaml"
-      ]
-    }
-  }
+	"folders": [
+		{
+			"name": "✨ root",
+			"path": ".",
+		},
+		{
+			"name": "📦 tauri-search",
+			"path": "packages/tauri-search",
+		},
+		{
+			"name": "📚 Docs",
+			"path": "packages/docs",
+		},
+		{
+			"name": "🦀 scraper",
+			"path": "packages/scraper",
+		},
+	],
+	"settings": {
+		"monorepoWorkspace.includeRoot": true,
+		"i18n-ally.keystyle": "nested",
+		"yaml.schemas": {
+			"https://json.schemastore.org/github-action.json": [
+				"file:///Volumes/Coding/playground/t/tauri-search/.github/workflows/atomic/build.yml",
+				"file:///Volumes/Coding/playground/t/tauri-search/.github/workflows/atomic/lint.yaml",
+			],
+		},
+	},
 }
