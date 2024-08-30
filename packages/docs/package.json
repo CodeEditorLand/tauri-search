@@ -2,7 +2,7 @@
 	"dependencies": {
 		"date-fns": "3.6.0",
 		"docs-searchbar.js": "2.5.0",
-		"inferred-types": "0.47.9",
+		"inferred-types": "0.48.3",
 		"markdown-it-expandable": "1.0.2",
 		"nprogress": "0.2.0",
 		"pinia": "2.2.2",
@@ -10,8 +10,8 @@
 		"tauri-search": "workspace:*"
 	},
 	"devDependencies": {
-		"@antfu/eslint-config": "2.27.1",
-		"@iconify/json": "2.2.241",
+		"@antfu/eslint-config": "3.0.0",
+		"@iconify/json": "2.2.242",
 		"@types/markdown-it-link-attributes": "3.0.5",
 		"@types/nprogress": "0.2.3",
 		"critters": "0.0.24",
