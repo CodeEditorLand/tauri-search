@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-import { existsSync } from "fs";
+import { existsSync } from "node:fs";
 import { REPO_DOCS_CACHE, TS_DOCS_CACHE } from "~/constants";
 import { ApiModel, ConsolidatedModel, ProseModel, RepoModel } from "~/models";
 import {

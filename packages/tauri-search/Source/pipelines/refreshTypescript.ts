@@ -6,7 +6,7 @@ import { getRepoFile } from "~/utils/github/getRepoFile";
 import { writeCacheFile } from "~/utils/writeCacheFile";
 import { TypescriptBlock, IEnv } from "~/types";
 import { IApiModel } from "~/models";
-import { writeFileSync } from "fs";
+import { writeFileSync } from "node:fs";
 
 /**
  * Refreshes the document cache
