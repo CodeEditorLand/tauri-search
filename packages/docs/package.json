@@ -10,7 +10,7 @@
 		"tauri-search": "workspace:*"
 	},
 	"devDependencies": {
-		"@antfu/eslint-config": "3.7.2",
+		"@antfu/eslint-config": "3.7.3",
 		"@iconify/json": "2.2.253",
 		"@types/markdown-it-link-attributes": "3.0.5",
 		"@types/nprogress": "0.2.3",
