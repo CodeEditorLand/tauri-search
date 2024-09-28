@@ -14,5 +14,4 @@
 **/vite.config.ts.js
 **/.env*
 
-**/target
-packages/clippy/output.json
+**packages/clippy/output.json
