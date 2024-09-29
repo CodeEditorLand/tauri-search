@@ -2,7 +2,7 @@
 	"dependencies": {
 		"date-fns": "4.1.0",
 		"docs-searchbar.js": "2.5.0",
-		"inferred-types": "0.50.3",
+		"inferred-types": "0.50.4",
 		"markdown-it-expandable": "1.0.2",
 		"nprogress": "0.2.0",
 		"pinia": "2.2.2",
@@ -11,7 +11,7 @@
 	},
 	"devDependencies": {
 		"@antfu/eslint-config": "3.7.3",
-		"@iconify/json": "2.2.253",
+		"@iconify/json": "2.2.254",
 		"@types/markdown-it-link-attributes": "3.0.5",
 		"@types/nprogress": "0.2.3",
 		"critters": "0.0.24",
