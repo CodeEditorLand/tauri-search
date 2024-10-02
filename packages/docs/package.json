@@ -2,10 +2,10 @@
 	"dependencies": {
 		"date-fns": "4.1.0",
 		"docs-searchbar.js": "2.5.0",
-		"inferred-types": "0.50.6",
+		"inferred-types": "0.50.10",
 		"markdown-it-expandable": "1.0.2",
 		"nprogress": "0.2.0",
-		"pinia": "2.2.3",
+		"pinia": "2.2.4",
 		"prism-theme-vars": "0.2.5",
 		"tauri-search": "workspace:*"
 	},
