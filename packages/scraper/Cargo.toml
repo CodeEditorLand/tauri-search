@@ -3,8 +3,6 @@ name = "doc-scraper"
 version = "0.1.0"
 edition = "2018"
 
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
-
 [dependencies]
 reqwest = { version = "0.11", features = ["json"] }
 clap = { version = "3.0", features = ["derive"] }
