@@ -1,3 +1,3 @@
 export function sanitizeDocId(id: string) {
-  return id.replace(/[^a-zA-Z]/g, "_");
+	return id.replace(/[^a-zA-Z]/g, "_");
 }

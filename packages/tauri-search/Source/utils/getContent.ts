@@ -1,30 +1,35 @@
-import axios from "axios";
 import { readFile } from "fs/promises";
+import axios from "axios";
+
 import { getRepoFile } from "./github/getRepoFile";
 
 export type FileSource = { file: string; url?: undefined; repo?: undefined };
 export type UrlSource = { url: string; file?: undefined; repo?: undefined };
 export type RepoSource = {
-  url?: undefined;
-  file?: undefined;
-  repo: `${string}/${string}`;
-  filepath: string;
-  branch?: string;
+	url?: undefined;
+	file?: undefined;
+	repo: `${string}/${string}`;
+	filepath: string;
+	branch?: string;
 };
 
 export type IGetContentFallback = FileSource | UrlSource | RepoSource;
 export type IGetContentOptions = IGetContentFallback | {};
 
-export function isRepoSource(source: IGetContentFallback): source is RepoSource {
-  return "repo" in source && "branch" in source;
+export function isRepoSource(
+	source: IGetContentFallback,
+): source is RepoSource {
+	return "repo" in source && "branch" in source;
 }
 
-export function isFileSource(source: IGetContentFallback): source is FileSource {
-  return "file" in source;
+export function isFileSource(
+	source: IGetContentFallback,
+): source is FileSource {
+	return "file" in source;
 }
 
 export function isUrlSource(source: IGetContentFallback): source is UrlSource {
-  return "url" in source;
+	return "url" in source;
 }
 
 /**
@@ -38,24 +43,26 @@ export function isUrlSource(source: IGetContentFallback): source is UrlSource {
  * the expected "type" of the content
  */
 export const getContent =
-  (fallback: IGetContentFallback) =>
-  async (options: IGetContentOptions = {}): Promise<string> => {
-    const config =
-      Object.keys(options).length > 0 ? (options as IGetContentFallback) : fallback;
-    let content: string;
-    if (isFileSource(config)) {
-      content = await readFile(config.file, { encoding: "utf-8" });
-    } else if (isUrlSource(config)) {
-      content = (await axios.get(config.url)).data;
-    } else if (isRepoSource(config)) {
-      content = (await getRepoFile(
-        config.repo,
-        config.filepath,
-        config.branch
-      )) as string;
-    } else {
-      throw new Error(`No content reference passed in!`);
-    }
+	(fallback: IGetContentFallback) =>
+	async (options: IGetContentOptions = {}): Promise<string> => {
+		const config =
+			Object.keys(options).length > 0
+				? (options as IGetContentFallback)
+				: fallback;
+		let content: string;
+		if (isFileSource(config)) {
+			content = await readFile(config.file, { encoding: "utf-8" });
+		} else if (isUrlSource(config)) {
+			content = (await axios.get(config.url)).data;
+		} else if (isRepoSource(config)) {
+			content = (await getRepoFile(
+				config.repo,
+				config.filepath,
+				config.branch,
+			)) as string;
+		} else {
+			throw new Error(`No content reference passed in!`);
+		}
 
-    return content;
-  };
+		return content;
+	};

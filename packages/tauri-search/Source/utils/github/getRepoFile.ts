@@ -9,13 +9,13 @@ import { getRepoDefaultBranch } from "./getRepoDefaultBranch";
  * @param branch optionally specify a branch; will default to repo's default branch if not specified
  */
 export async function getRepoFile(
-  repo: `${string}/${string}`,
-  filepath: string,
-  branch?: string
+	repo: `${string}/${string}`,
+	filepath: string,
+	branch?: string,
 ) {
-  if (!branch) {
-    branch = await getRepoDefaultBranch(repo);
-  }
-  const url = `https://raw.githubusercontent.com/${repo}/${branch}/${filepath}`;
-  return getUrl(url);
+	if (!branch) {
+		branch = await getRepoDefaultBranch(repo);
+	}
+	const url = `https://raw.githubusercontent.com/${repo}/${branch}/${filepath}`;
+	return getUrl(url);
 }

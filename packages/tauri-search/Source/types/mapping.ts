@@ -9,8 +9,9 @@
  * }
  * ```
  */
-export type ModelMapper<TInput extends Record<string, any>, TOutput extends {}> = (
-  i: TInput
-) => {
-  [K in keyof TOutput]: TOutput[K];
+export type ModelMapper<
+	TInput extends Record<string, any>,
+	TOutput extends {},
+> = (i: TInput) => {
+	[K in keyof TOutput]: TOutput[K];
 };
