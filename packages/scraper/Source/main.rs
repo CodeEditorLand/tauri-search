@@ -46,10 +46,7 @@ async fn main() -> Result<()> {
 			fs::write(&v, results).await?;
 		},
 		(Some(v), true) => {
-			println!(
-				"- Loading and parsing {} child nodes",
-				&doc.get_child_urls().len()
-			);
+			println!("- Loading and parsing {} child nodes", &doc.get_child_urls().len());
 			let results = serde_json::to_string(&doc.results_graph().await?)?;
 			fs::write(&v, results).await?;
 		},

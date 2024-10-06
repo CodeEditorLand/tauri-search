@@ -154,15 +154,7 @@ impl LoadedDocument {
 			.add_selector_all("attr_macros", ".module-item a.attr")
 			.add_selector("desc", "section .docblock")
 			.child_selectors(
-				vec![
-					"modules",
-					"structs",
-					"functions",
-					"traits",
-					"types_defs",
-					"enums",
-					"macros",
-				],
+				vec!["modules", "structs", "functions", "traits", "types_defs", "enums", "macros"],
 				ChildScope::Relative(),
 			)
 	}
@@ -228,11 +220,7 @@ pub enum ChildScope {
 ///
 /// Note: in the case of a "relative path", this function will
 /// modify this to be a fully qualified path
-fn validate_child_href(
-	href:&str,
-	scope:&ChildScope,
-	current_page:&str,
-) -> Option<String> {
+fn validate_child_href(href:&str, scope:&ChildScope, current_page:&str) -> Option<String> {
 	lazy_static! {
 		static ref REL: Regex = Regex::new(r"^[\w\.#]+$").unwrap();
 	}
@@ -244,17 +232,13 @@ fn validate_child_href(
 		href.starts_with("file"),
 		REL.captures(href).is_some(),
 	) {
-		(_, ChildScope::All(), false, false, true) => {
-			Some([current_page, href].join("/"))
-		},
+		(_, ChildScope::All(), false, false, true) => Some([current_page, href].join("/")),
 		(_, ChildScope::All(), ..) => Some(href.to_string()),
 		(_, ChildScope::Http(), true, ..) => Some(href.to_string()),
 		(_, ChildScope::Http(), false, ..) => None,
 		(_, ChildScope::File(), _, true, _) => Some(href.to_string()),
 		(_, ChildScope::File(), _, false, _) => None,
-		(_, ChildScope::Relative(), _, _, true) => {
-			Some([current_page, href].join("/"))
-		},
+		(_, ChildScope::Relative(), _, _, true) => Some([current_page, href].join("/")),
 
 		_ => None,
 	}
@@ -278,12 +262,7 @@ pub struct ParsedDoc {
 
 impl ParsedDoc {
 	pub fn new(url:String, html:Html) -> ParsedDoc {
-		ParsedDoc {
-			url,
-			html,
-			selectors:HashMap::new(),
-			child_selectors:vec![],
-		}
+		ParsedDoc { url, html, selectors:HashMap::new(), child_selectors:vec![] }
 	}
 
 	/// Adds some useful but generic selectors which includes:
@@ -325,15 +304,9 @@ impl ParsedDoc {
 	/// an `href` property as well as the correct "scope" will be scraped as
 	/// well when the CLI's `--follow` flag is set or when the
 	/// `results_graph()` function is called.
-	pub fn child_selectors(
-		mut self,
-		selectors:Vec<&str>,
-		scope:ChildScope,
-	) -> Self {
-		let new_selectors:Vec<(String, ChildScope)> = selectors
-			.iter()
-			.map(|s| ((*s).to_string(), scope.clone()))
-			.collect();
+	pub fn child_selectors(mut self, selectors:Vec<&str>, scope:ChildScope) -> Self {
+		let new_selectors:Vec<(String, ChildScope)> =
+			selectors.iter().map(|s| ((*s).to_string(), scope.clone())).collect();
 
 		new_selectors.iter().for_each(|s| self.child_selectors.push(s.clone()));
 
@@ -351,15 +324,10 @@ impl ParsedDoc {
 				}
 			},
 			Some(SelectorKind::List(v)) => {
-				Ok(Some(SelectionKind::List(
-					self.html.select(v).map(Selection::from).collect(),
-				)))
+				Ok(Some(SelectionKind::List(self.html.select(v).map(Selection::from).collect())))
 			},
 			_ => {
-				return Err(anyhow!(
-					"could not find the '{}' selector",
-					name.to_string()
-				));
+				return Err(anyhow!("could not find the '{}' selector", name.to_string()));
 			},
 		}
 	}
@@ -385,9 +353,7 @@ impl ParsedDoc {
 						// iterate through all elements
 						self.html.select(v).for_each(|c| {
 							if let Some(href) = Selection::from(c).href {
-								if let Some(href) =
-									validate_child_href(&href, scope, &self.url)
-								{
+								if let Some(href) = validate_child_href(&href, scope, &self.url) {
 									children.push(href);
 								}
 							}
@@ -398,9 +364,7 @@ impl ParsedDoc {
 							// if selector returned an element, get href prop
 							// (if avail)
 							if let Some(href) = Selection::from(el).href {
-								if let Some(v) =
-									validate_child_href(&href, scope, &self.url)
-								{
+								if let Some(v) = validate_child_href(&href, scope, &self.url) {
 									children.push(v)
 								}
 							}
@@ -421,8 +385,7 @@ impl ParsedDoc {
 		let mut stream = tokio_stream::iter(urls);
 
 		while let Some(v) = stream.next().await {
-			let child =
-				Document::new(&v).load_document().await.unwrap().for_docs_rs();
+			let child = Document::new(&v).load_document().await.unwrap().for_docs_rs();
 
 			children.push(child.results());
 		}
@@ -441,20 +404,12 @@ impl ParsedDoc {
 					data.insert(name.to_string(), v);
 				},
 				_ => {
-					anyhow!(
-						"Problem inserting the results for the selector '{}'.",
-						name,
-					);
+					anyhow!("Problem inserting the results for the selector '{}'.", name,);
 				},
 			}
 		});
 
-		ParseResults {
-			url:self.url.to_string(),
-			data,
-			props:HashMap::new(),
-			children:vec![],
-		}
+		ParseResults { url:self.url.to_string(), data, props:HashMap::new(), children:vec![] }
 	}
 
 	/// Returns a tree of `ParseResults` starting with the given URL and
