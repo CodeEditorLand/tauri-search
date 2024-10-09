@@ -15,9 +15,7 @@
 						"header": [],
 						"url": {
 							"raw": "{{url}}/indexes/{{indexUID}}/documents/2",
-							"host": [
-								"{{url}}"
-							],
+							"host": ["{{url}}"],
 							"path": [
 								"indexes",
 								"{{indexUID}}",
@@ -35,14 +33,8 @@
 						"header": [],
 						"url": {
 							"raw": "{{url}}/indexes/{{indexUID}}/documents",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"indexes",
-								"{{indexUID}}",
-								"documents"
-							],
+							"host": ["{{url}}"],
+							"path": ["indexes", "{{indexUID}}", "documents"],
 							"query": [
 								{
 									"key": "limit",
@@ -80,14 +72,8 @@
 						},
 						"url": {
 							"raw": "{{url}}/indexes/{{indexUID}}/documents",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"indexes",
-								"{{indexUID}}",
-								"documents"
-							],
+							"host": ["{{url}}"],
+							"path": ["indexes", "{{indexUID}}", "documents"],
 							"query": [
 								{
 									"key": "primaryKey",
@@ -115,14 +101,8 @@
 						},
 						"url": {
 							"raw": "{{url}}/indexes/{{indexUID}}/documents",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"indexes",
-								"{{indexUID}}",
-								"documents"
-							],
+							"host": ["{{url}}"],
+							"path": ["indexes", "{{indexUID}}", "documents"],
 							"query": [
 								{
 									"key": "primaryKey",
@@ -145,9 +125,7 @@
 						},
 						"url": {
 							"raw": "{{url}}/indexes/{{indexUID}}/documents/1",
-							"host": [
-								"{{url}}"
-							],
+							"host": ["{{url}}"],
 							"path": [
 								"indexes",
 								"{{indexUID}}",
@@ -180,9 +158,7 @@
 						},
 						"url": {
 							"raw": "{{url}}/indexes/{{indexUID}}/documents/delete-batch",
-							"host": [
-								"{{url}}"
-							],
+							"host": ["{{url}}"],
 							"path": [
 								"indexes",
 								"{{indexUID}}",
@@ -200,14 +176,8 @@
 						"header": [],
 						"url": {
 							"raw": "{{url}}/indexes/{{indexUID}}/documents",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"indexes",
-								"{{indexUID}}",
-								"documents"
-							]
+							"host": ["{{url}}"],
+							"path": ["indexes", "{{indexUID}}", "documents"]
 						}
 					},
 					"response": []
@@ -224,14 +194,8 @@
 						"header": [],
 						"url": {
 							"raw": "{{url}}/indexes/{{indexUID}}/search?q=prinec",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"indexes",
-								"{{indexUID}}",
-								"search"
-							],
+							"host": ["{{url}}"],
+							"path": ["indexes", "{{indexUID}}", "search"],
 							"query": [
 								{
 									"key": "q",
@@ -314,14 +278,8 @@
 						},
 						"url": {
 							"raw": "{{url}}/indexes/{{indexUID}}/search",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"indexes",
-								"{{indexUID}}",
-								"search"
-							]
+							"host": ["{{url}}"],
+							"path": ["indexes", "{{indexUID}}", "search"]
 						}
 					},
 					"response": []
@@ -338,12 +296,8 @@
 						"header": [],
 						"url": {
 							"raw": "{{url}}/tasks",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"tasks"
-							]
+							"host": ["{{url}}"],
+							"path": ["tasks"]
 						}
 					},
 					"response": []
@@ -355,13 +309,8 @@
 						"header": [],
 						"url": {
 							"raw": "{{url}}/tasks/0",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"tasks",
-								"0"
-							]
+							"host": ["{{url}}"],
+							"path": ["tasks", "0"]
 						}
 					},
 					"response": []
@@ -373,14 +322,8 @@
 						"header": [],
 						"url": {
 							"raw": "{{url}}/indexes/{{indexUID}}/tasks",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"indexes",
-								"{{indexUID}}",
-								"tasks"
-							]
+							"host": ["{{url}}"],
+							"path": ["indexes", "{{indexUID}}", "tasks"]
 						}
 					},
 					"response": []
@@ -392,15 +335,8 @@
 						"header": [],
 						"url": {
 							"raw": "{{url}}/indexes/{{indexUID}}/tasks/0",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"indexes",
-								"{{indexUID}}",
-								"tasks",
-								"0"
-							]
+							"host": ["{{url}}"],
+							"path": ["indexes", "{{indexUID}}", "tasks", "0"]
 						}
 					},
 					"response": []
@@ -417,12 +353,8 @@
 						"header": [],
 						"url": {
 							"raw": "{{url}}/indexes",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"indexes"
-							]
+							"host": ["{{url}}"],
+							"path": ["indexes"]
 						}
 					},
 					"response": []
@@ -434,13 +366,8 @@
 						"header": [],
 						"url": {
 							"raw": "{{url}}/indexes/{{indexUID}}",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"indexes",
-								"{{indexUID}}"
-							]
+							"host": ["{{url}}"],
+							"path": ["indexes", "{{indexUID}}"]
 						}
 					},
 					"response": []
@@ -467,12 +394,8 @@
 						},
 						"url": {
 							"raw": "{{url}}/indexes",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"indexes"
-							]
+							"host": ["{{url}}"],
+							"path": ["indexes"]
 						}
 					},
 					"response": []
@@ -499,12 +422,8 @@
 						},
 						"url": {
 							"raw": "{{url}}/indexes",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"indexes"
-							]
+							"host": ["{{url}}"],
+							"path": ["indexes"]
 						}
 					},
 					"response": []
@@ -531,13 +450,8 @@
 						},
 						"url": {
 							"raw": "{{url}}/indexes/{{indexUID}}",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"indexes",
-								"{{indexUID}}"
-							]
+							"host": ["{{url}}"],
+							"path": ["indexes", "{{indexUID}}"]
 						},
 						"description": "Can only change the document identifier if it has not already been added before."
 					},
@@ -550,13 +464,8 @@
 						"header": [],
 						"url": {
 							"raw": "{{url}}/indexes/{{indexUID}}",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"indexes",
-								"{{indexUID}}"
-							]
+							"host": ["{{url}}"],
+							"path": ["indexes", "{{indexUID}}"]
 						}
 					},
 					"response": []
@@ -576,9 +485,7 @@
 								"header": [],
 								"url": {
 									"raw": "{{url}}/indexes/{{indexUID}}/settings/ranking-rules",
-									"host": [
-										"{{url}}"
-									],
+									"host": ["{{url}}"],
 									"path": [
 										"indexes",
 										"{{indexUID}}",
@@ -611,9 +518,7 @@
 								},
 								"url": {
 									"raw": "{{url}}/indexes/{{indexUID}}/settings/ranking-rules",
-									"host": [
-										"{{url}}"
-									],
+									"host": ["{{url}}"],
 									"path": [
 										"indexes",
 										"{{indexUID}}",
@@ -631,9 +536,7 @@
 								"header": [],
 								"url": {
 									"raw": "{{url}}/indexes/{{indexUID}}/settings/ranking-rules",
-									"host": [
-										"{{url}}"
-									],
+									"host": ["{{url}}"],
 									"path": [
 										"indexes",
 										"{{indexUID}}",
@@ -651,9 +554,7 @@
 								"header": [],
 								"url": {
 									"raw": "{{url}}/indexes/{{indexUID}}/settings/distinct-attribute",
-									"host": [
-										"{{url}}"
-									],
+									"host": ["{{url}}"],
 									"path": [
 										"indexes",
 										"{{indexUID}}",
@@ -686,9 +587,7 @@
 								},
 								"url": {
 									"raw": "{{url}}/indexes/{{indexUID}}/settings/distinct-attribute",
-									"host": [
-										"{{url}}"
-									],
+									"host": ["{{url}}"],
 									"path": [
 										"indexes",
 										"{{indexUID}}",
@@ -706,9 +605,7 @@
 								"header": [],
 								"url": {
 									"raw": "{{url}}/indexes/{{indexUID}}/settings/distinct-attribute",
-									"host": [
-										"{{url}}"
-									],
+									"host": ["{{url}}"],
 									"path": [
 										"indexes",
 										"{{indexUID}}",
@@ -726,9 +623,7 @@
 								"header": [],
 								"url": {
 									"raw": "{{url}}/indexes/{{indexUID}}/settings/searchable-attributes",
-									"host": [
-										"{{url}}"
-									],
+									"host": ["{{url}}"],
 									"path": [
 										"indexes",
 										"{{indexUID}}",
@@ -761,9 +656,7 @@
 								},
 								"url": {
 									"raw": "{{url}}/indexes/{{indexUID}}/settings/searchable-attributes",
-									"host": [
-										"{{url}}"
-									],
+									"host": ["{{url}}"],
 									"path": [
 										"indexes",
 										"{{indexUID}}",
@@ -781,9 +674,7 @@
 								"header": [],
 								"url": {
 									"raw": "{{url}}/indexes/{{indexUID}}/settings/searchable-attributes",
-									"host": [
-										"{{url}}"
-									],
+									"host": ["{{url}}"],
 									"path": [
 										"indexes",
 										"{{indexUID}}",
@@ -801,9 +692,7 @@
 								"header": [],
 								"url": {
 									"raw": "{{url}}/indexes/{{indexUID}}/settings/displayed-attributes",
-									"host": [
-										"{{url}}"
-									],
+									"host": ["{{url}}"],
 									"path": [
 										"indexes",
 										"{{indexUID}}",
@@ -836,9 +725,7 @@
 								},
 								"url": {
 									"raw": "{{url}}/indexes/{{indexUID}}/settings/displayed-attributes",
-									"host": [
-										"{{url}}"
-									],
+									"host": ["{{url}}"],
 									"path": [
 										"indexes",
 										"{{indexUID}}",
@@ -856,9 +743,7 @@
 								"header": [],
 								"url": {
 									"raw": "{{url}}/indexes/{{indexUID}}/settings/displayed-attributes",
-									"host": [
-										"{{url}}"
-									],
+									"host": ["{{url}}"],
 									"path": [
 										"indexes",
 										"{{indexUID}}",
@@ -876,9 +761,7 @@
 								"header": [],
 								"url": {
 									"raw": "{{url}}/indexes/{{indexUID}}/settings/synonyms",
-									"host": [
-										"{{url}}"
-									],
+									"host": ["{{url}}"],
 									"path": [
 										"indexes",
 										"{{indexUID}}",
@@ -906,9 +789,7 @@
 								},
 								"url": {
 									"raw": "{{url}}/indexes/{{indexUID}}/settings/synonyms",
-									"host": [
-										"{{url}}"
-									],
+									"host": ["{{url}}"],
 									"path": [
 										"indexes",
 										"{{indexUID}}",
@@ -936,9 +817,7 @@
 								},
 								"url": {
 									"raw": "{{url}}/indexes/{{indexUID}}/settings/synonyms",
-									"host": [
-										"{{url}}"
-									],
+									"host": ["{{url}}"],
 									"path": [
 										"indexes",
 										"{{indexUID}}",
@@ -969,9 +848,7 @@
 								},
 								"url": {
 									"raw": "{{url}}/indexes/{{indexUID}}/settings/stop-words",
-									"host": [
-										"{{url}}"
-									],
+									"host": ["{{url}}"],
 									"path": [
 										"indexes",
 										"{{indexUID}}",
@@ -1004,9 +881,7 @@
 								},
 								"url": {
 									"raw": "{{url}}/indexes/{{indexUID}}/settings/stop-words",
-									"host": [
-										"{{url}}"
-									],
+									"host": ["{{url}}"],
 									"path": [
 										"indexes",
 										"{{indexUID}}",
@@ -1030,9 +905,7 @@
 								],
 								"url": {
 									"raw": "{{url}}/indexes/{{indexUID}}/settings/stop-words",
-									"host": [
-										"{{url}}"
-									],
+									"host": ["{{url}}"],
 									"path": [
 										"indexes",
 										"{{indexUID}}",
@@ -1050,9 +923,7 @@
 								"header": [],
 								"url": {
 									"raw": "{{url}}/indexes/{{indexUID}}/settings/filterable-attributes",
-									"host": [
-										"{{url}}"
-									],
+									"host": ["{{url}}"],
 									"path": [
 										"indexes",
 										"{{indexUID}}",
@@ -1085,9 +956,7 @@
 								},
 								"url": {
 									"raw": "{{url}}/indexes/{{indexUID}}/settings/filterable-attributes",
-									"host": [
-										"{{url}}"
-									],
+									"host": ["{{url}}"],
 									"path": [
 										"indexes",
 										"{{indexUID}}",
@@ -1105,9 +974,7 @@
 								"header": [],
 								"url": {
 									"raw": "{{url}}/indexes/{{indexUID}}/settings/filterable-attributes",
-									"host": [
-										"{{url}}"
-									],
+									"host": ["{{url}}"],
 									"path": [
 										"indexes",
 										"{{indexUID}}",
@@ -1125,9 +992,7 @@
 								"header": [],
 								"url": {
 									"raw": "{{url}}/indexes/{{indexUID}}/settings/sortable-attributes",
-									"host": [
-										"{{url}}"
-									],
+									"host": ["{{url}}"],
 									"path": [
 										"indexes",
 										"{{indexUID}}",
@@ -1160,9 +1025,7 @@
 								},
 								"url": {
 									"raw": "{{url}}/indexes/{{indexUID}}/settings/sortable-attributes",
-									"host": [
-										"{{url}}"
-									],
+									"host": ["{{url}}"],
 									"path": [
 										"indexes",
 										"{{indexUID}}",
@@ -1180,9 +1043,7 @@
 								"header": [],
 								"url": {
 									"raw": "{{url}}/indexes/{{indexUID}}/settings/sortable-attributes",
-									"host": [
-										"{{url}}"
-									],
+									"host": ["{{url}}"],
 									"path": [
 										"indexes",
 										"{{indexUID}}",
@@ -1202,14 +1063,8 @@
 						"header": [],
 						"url": {
 							"raw": "{{url}}/indexes/{{indexUID}}/settings",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"indexes",
-								"{{indexUID}}",
-								"settings"
-							]
+							"host": ["{{url}}"],
+							"path": ["indexes", "{{indexUID}}", "settings"]
 						}
 					},
 					"response": []
@@ -1236,14 +1091,8 @@
 						},
 						"url": {
 							"raw": "{{url}}/indexes/{{indexUID}}/settings",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"indexes",
-								"{{indexUID}}",
-								"settings"
-							]
+							"host": ["{{url}}"],
+							"path": ["indexes", "{{indexUID}}", "settings"]
 						}
 					},
 					"response": []
@@ -1261,14 +1110,8 @@
 						],
 						"url": {
 							"raw": "{{url}}/indexes/{{indexUID}}/settings",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"indexes",
-								"{{indexUID}}",
-								"settings"
-							]
+							"host": ["{{url}}"],
+							"path": ["indexes", "{{indexUID}}", "settings"]
 						}
 					},
 					"response": []
@@ -1285,12 +1128,8 @@
 						"header": [],
 						"url": {
 							"raw": "{{url}}/keys",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"keys"
-							]
+							"host": ["{{url}}"],
+							"path": ["keys"]
 						}
 					},
 					"response": []
@@ -1302,9 +1141,7 @@
 						"header": [],
 						"url": {
 							"raw": "{{url}}/keys/L8l05tFb188aab693735bbaf1f898b9902fb39f865160d39dddba2b47b940115a0430705",
-							"host": [
-								"{{url}}"
-							],
+							"host": ["{{url}}"],
 							"path": [
 								"keys",
 								"L8l05tFb188aab693735bbaf1f898b9902fb39f865160d39dddba2b47b940115a0430705"
@@ -1330,12 +1167,8 @@
 						},
 						"url": {
 							"raw": "{{url}}/keys",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"keys"
-							]
+							"host": ["{{url}}"],
+							"path": ["keys"]
 						}
 					},
 					"response": []
@@ -1357,9 +1190,7 @@
 						},
 						"url": {
 							"raw": "{{url}}/keys/wYZjGJyBcdb0621b97999c233246a8ec0a35d0fcd9a6417ef8ccee0c8978b64b123af2dd",
-							"host": [
-								"{{url}}"
-							],
+							"host": ["{{url}}"],
 							"path": [
 								"keys",
 								"wYZjGJyBcdb0621b97999c233246a8ec0a35d0fcd9a6417ef8ccee0c8978b64b123af2dd"
@@ -1381,12 +1212,8 @@
 						],
 						"url": {
 							"raw": "{{url}}/keys",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"keys"
-							]
+							"host": ["{{url}}"],
+							"path": ["keys"]
 						}
 					},
 					"response": []
@@ -1403,12 +1230,8 @@
 						"header": [],
 						"url": {
 							"raw": "{{url}}/stats",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"stats"
-							]
+							"host": ["{{url}}"],
+							"path": ["stats"]
 						}
 					},
 					"response": []
@@ -1420,14 +1243,8 @@
 						"header": [],
 						"url": {
 							"raw": "{{url}}/indexes/{{indexUID}}/stats",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"indexes",
-								"{{indexUID}}",
-								"stats"
-							]
+							"host": ["{{url}}"],
+							"path": ["indexes", "{{indexUID}}", "stats"]
 						}
 					},
 					"response": []
@@ -1439,12 +1256,8 @@
 						"header": [],
 						"url": {
 							"raw": "{{url}}/version",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"version"
-							]
+							"host": ["{{url}}"],
+							"path": ["version"]
 						}
 					},
 					"response": []
@@ -1456,12 +1269,8 @@
 						"header": [],
 						"url": {
 							"raw": "{{url}}/health",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"health"
-							]
+							"host": ["{{url}}"],
+							"path": ["health"]
 						}
 					},
 					"response": []
@@ -1478,14 +1287,8 @@
 						"header": [],
 						"url": {
 							"raw": "{{url}}/dumps/20201001-110357260/status",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"dumps",
-								"20201001-110357260",
-								"status"
-							]
+							"host": ["{{url}}"],
+							"path": ["dumps", "20201001-110357260", "status"]
 						}
 					},
 					"response": []
@@ -1500,12 +1303,8 @@
 						"header": [],
 						"url": {
 							"raw": "{{url}}/dumps",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"dumps"
-							]
+							"host": ["{{url}}"],
+							"path": ["dumps"]
 						}
 					},
 					"response": []
@@ -1516,18 +1315,14 @@
 					"listen": "prerequest",
 					"script": {
 						"type": "text/javascript",
-						"exec": [
-							""
-						]
+						"exec": [""]
 					}
 				},
 				{
 					"listen": "test",
 					"script": {
 						"type": "text/javascript",
-						"exec": [
-							""
-						]
+						"exec": [""]
 					}
 				}
 			]
@@ -1548,18 +1343,14 @@
 			"listen": "prerequest",
 			"script": {
 				"type": "text/javascript",
-				"exec": [
-					""
-				]
+				"exec": [""]
 			}
 		},
 		{
 			"listen": "test",
 			"script": {
 				"type": "text/javascript",
-				"exec": [
-					""
-				]
+				"exec": [""]
 			}
 		}
 	],
