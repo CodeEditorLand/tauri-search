@@ -2,16 +2,16 @@
 	"dependencies": {
 		"date-fns": "4.1.0",
 		"docs-searchbar.js": "2.5.0",
-		"inferred-types": "0.50.23",
+		"inferred-types": "0.51.1",
 		"markdown-it-expandable": "1.0.2",
 		"nprogress": "0.2.0",
-		"pinia": "2.2.5",
+		"pinia": "2.2.6",
 		"prism-theme-vars": "0.2.5",
 		"tauri-search": "workspace:*"
 	},
 	"devDependencies": {
 		"@antfu/eslint-config": "3.8.0",
-		"@iconify/json": "2.2.266",
+		"@iconify/json": "2.2.268",
 		"@types/markdown-it-link-attributes": "3.0.5",
 		"@types/nprogress": "0.2.3",
 		"critters": "0.0.25",
@@ -24,7 +24,7 @@
 		"markdown-it-prism": "2.3.0",
 		"meili-searchbar": "2.2.1",
 		"unplugin-auto-import": "0.18.3",
-		"unplugin-icons": "0.20.0"
+		"unplugin-icons": "0.20.1"
 	},
 	"scripts": {
 		"build": "vite-ssg build",
