@@ -10,8 +10,8 @@
 		"tauri-search": "workspace:*"
 	},
 	"devDependencies": {
-		"@antfu/eslint-config": "3.8.0",
-		"@iconify/json": "2.2.271",
+		"@antfu/eslint-config": "3.9.1",
+		"@iconify/json": "2.2.273",
 		"@types/markdown-it-link-attributes": "3.0.5",
 		"@types/nprogress": "0.2.3",
 		"critters": "0.0.25",
@@ -23,7 +23,7 @@
 		"markdown-it-link-attributes": "4.0.1",
 		"markdown-it-prism": "2.3.0",
 		"meili-searchbar": "2.2.1",
-		"unplugin-auto-import": "0.18.3",
+		"unplugin-auto-import": "0.18.4",
 		"unplugin-icons": "0.20.1"
 	},
 	"scripts": {
