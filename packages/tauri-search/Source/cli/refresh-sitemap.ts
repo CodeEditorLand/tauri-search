@@ -6,9 +6,11 @@ import { getEnv } from "~/utils/getEnv/node/getEnv";
 	console.log(`- refreshing sitemap for prose content`);
 
 	const o = getEnv();
+
 	const r = await refreshSitemap(o);
 
 	console.log(`- updated sitemap has ${r.count} documents`);
+
 	if (r.hasDeltaInfo) {
 		if (r.changes?.added?.length > 0) {
 			console.log(

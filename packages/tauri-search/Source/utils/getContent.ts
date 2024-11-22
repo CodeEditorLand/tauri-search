@@ -49,7 +49,9 @@ export const getContent =
 			Object.keys(options).length > 0
 				? (options as IGetContentFallback)
 				: fallback;
+
 		let content: string;
+
 		if (isFileSource(config)) {
 			content = await readFile(config.file, { encoding: "utf-8" });
 		} else if (isUrlSource(config)) {

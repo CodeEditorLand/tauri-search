@@ -12,10 +12,12 @@ export type GithubRepoBranchesResp =
  */
 export async function getRepoBranches(ownerRepo: `${string}/${string}`) {
 	const url = `${GITHUB_API_BASE}/repos/${ownerRepo}/branches&per_page=30&page=1`;
+
 	const res = await axios.get(url);
 
 	if (res.ok) {
 		const result = (await res.json()) as GithubRepoBranchesResp["data"];
+
 		return result.map((i) => i.name);
 	} else {
 		throw new Error(

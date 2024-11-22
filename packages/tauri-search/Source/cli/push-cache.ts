@@ -14,7 +14,9 @@ import { communicateTaskStatus } from "~/utils/communicateTaskStatus";
 
 (async () => {
 	console.log(`- Pushing ALL document caches into local MeiliSearch server`);
+
 	const idx = (await ApiModel().query.currentIndexes()).map((i) => i.name);
+
 	if (idx.length > 0) {
 		console.log(
 			`- found the following indexes setup: ${idx.join(
@@ -40,6 +42,7 @@ import { communicateTaskStatus } from "~/utils/communicateTaskStatus";
 	);
 
 	console.log(`- Pushing "prose" documents to MeiliSearch`);
+
 	const proseTasks = await pushProseDocs();
 	console.log(
 		`- all ${proseTasks.length} documents were pushed via API; monitoring task status ...`,
@@ -57,6 +60,7 @@ import { communicateTaskStatus } from "~/utils/communicateTaskStatus";
 	}
 	const { docs, errors, tasks: repoTasks } = await pushRepoDocs();
 	console.log();
+
 	if (errors.length > 0) {
 		console.log(
 			`- Completed pushing Repo docs to MeiliSearch but ${errors.length} of ${
@@ -79,6 +83,7 @@ import { communicateTaskStatus } from "~/utils/communicateTaskStatus";
 		}
 
 		console.log(`- Starting update process for Typescript API documents`);
+
 		const { errors, tasks } = await pushTypescriptDocs();
 		console.log();
 

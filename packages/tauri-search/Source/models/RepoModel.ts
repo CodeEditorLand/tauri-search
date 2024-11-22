@@ -12,6 +12,7 @@ export interface IRepoModel {
 	watchers: number;
 	subscribers: number;
 	openIssues: number;
+
 	forks: number;
 
 	defaultBranch: string;

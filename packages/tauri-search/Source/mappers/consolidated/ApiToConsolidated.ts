@@ -6,6 +6,7 @@ import { capitalize, createLookup } from "native-dash";
 import { IndexRank } from "../ConsolidatedMapper";
 
 export type Symbol = "Namespace" | "Function" | "Enumeration";
+
 const shorten = createLookup<TypescriptKind, String>(
 	{
 		Namespace: "Module",

@@ -8,6 +8,7 @@ function symbolToUrl(module: string, kind: TypescriptKind, symbol: string) {
 	switch (kind) {
 		case TypescriptKind.Class:
 			return `${TAURI_JS_DOCS_URL}/classes/${module}.${symbol}`;
+
 		default:
 			return `${TAURI_JS_DOCS_URL}/modules/${module}#${symbol}`;
 	}
@@ -17,22 +18,29 @@ function symbolToDeclaration(i: TypescriptSymbol) {
 	switch (i.kind) {
 		case TypescriptKind.Reference:
 			return `type ${i.name} = {\n\t${i.children?.map((s) => s.name).join(",\n\t")}\n}`;
+
 		case TypescriptKind.Enumeration:
 			return `enum ${i.name} {\n\t${i.children?.map((s) => s.name).join(",\n\t")}\n}`;
+
 		case TypescriptKind.Class:
 			return `Class ${i.name} {\n\t${i.children?.map((s) => s.name).join(",\n\t")}\n}`;
+
 		case TypescriptKind.Interface:
 			return `interface ${i.name} {\n\t${i.children
 				?.map((s) => s.name)
 				.join(",\n\t")}\n}`;
+
 		case TypescriptKind.Namespace:
 			return `Module ${i.name}`;
+
 		case TypescriptKind.Function:
 			// TODO: see if we can get this filled in
 			const returnType = "";
+
 			const parameters = i.signatures
 				?.map((s) => `${s.name}: ${s.type.name}`)
 				.join(", ");
+
 			return `function ${i.name}(${parameters})${returnType} { ... }`;
 
 		default:

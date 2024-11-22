@@ -12,6 +12,7 @@ export const modelConfigApi = <TDoc extends {}>(
 		({
 			pk(pk: string) {
 				update({ index: { pk } });
+
 				return api<TExclude | "pk", M>();
 			},
 			searchable(...props) {
@@ -46,11 +47,13 @@ export const modelConfigApi = <TDoc extends {}>(
 			},
 			stopWords(words) {
 				update({ index: { stopWords: words } });
+
 				return api<TExclude | "stopWords">();
 			},
 
 			synonyms(synonyms) {
 				update({ index: { synonyms } });
+
 				return api<TExclude | "synonyms">();
 			},
 
@@ -58,6 +61,7 @@ export const modelConfigApi = <TDoc extends {}>(
 				const updateRules = (r: RankingRule<TDoc>[]) => {
 					update({ index: { rules: r } });
 				};
+
 				const ruleApi = rankingRules(updateRules);
 				cb(ruleApi);
 

@@ -10,6 +10,7 @@ import { getEnv } from "~/utils/getEnv/node/getEnv";
 
 	const { docs, errors, tasks } = await pushRepoDocs(o);
 	console.log();
+
 	if (errors.length > 0) {
 		console.log(
 			`- Completed pushing Repo docs to MeiliSearch but ${errors.length} of ${

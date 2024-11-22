@@ -185,9 +185,12 @@ export interface IMeiliSearchQueryApi<TDoc extends {}> {
 	 * which will be `id` unless stated otherwise.
 	 */
 	createIndex: () => Promise<IMeilisearchTaskStatus>;
+
 	getIndexTasks: () => Promise<IMeilisearchAllTasks>;
+
 	getDocument: (docId: string) => Promise<TDoc>;
 	deleteDocument: (docId: string) => Promise<IMeilisearchTaskStatus>;
+
 	getDocuments: (o?: AxiosRequestConfig) => Promise<TDoc[]>;
 	deleteAllDocuments: () => Promise<IMeilisearchTaskStatus>;
 	/**
@@ -235,7 +238,9 @@ export interface IMeiliSearchQueryApi<TDoc extends {}> {
 	/** all of the indexes which currently exist in MeiliSearch */
 	currentIndexes: () => Promise<MsIndexStatusResponse[]>;
 	version: () => Promise<IMeilisearchVersion>;
+
 	getKeys: () => Promise<IMeilisearchKey[]>;
+
 	getTask: (id: number) => Promise<IMeilisearchTaskStatus>;
 	createKey: (key: IMeilisearchKey) => Promise<IMeilisearchTaskStatus>;
 	deleteKey: (key: string) => Promise<IMeilisearchTaskStatus>;

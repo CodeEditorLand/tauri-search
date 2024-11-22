@@ -15,6 +15,7 @@ function parseModule(mod: TypescriptBlock) {
 		comment: mod?.comment?.text || mod?.comment?.text,
 		commentTags: mod?.comment?.tags,
 	};
+
 	const symbols: TypescriptSymbol[] = [modDefn];
 
 	for (const i of mod.children || []) {

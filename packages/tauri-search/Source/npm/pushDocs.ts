@@ -21,6 +21,7 @@ export async function pushDocs(
 	_options: { repo?: string; branch?: string } = {},
 ) {
 	const t: Promise<IMeilisearchTaskStatus>[] = [];
+
 	for (const doc of docs) {
 		if (isProseDocument(doc)) {
 			t.push(ProseModel().query.addOrReplaceDocuments(doc));
@@ -33,5 +34,6 @@ export async function pushDocs(
 		}
 	}
 	const tasks = await Promise.all(t);
+
 	return tasks;
 }

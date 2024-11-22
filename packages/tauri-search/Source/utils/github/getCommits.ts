@@ -20,6 +20,8 @@ export async function getCommits(
 	qp: IGithubCommitsOptions,
 ): Promise<GithubCommitsResp> {
 	const url = `${GITHUB_API_BASE}/repos/${ownerRepo}/commits`;
+
 	const params: IGithubCommitsOptions = { page: 1, per_page: 3, ...qp };
+
 	return axios.get(url, { params });
 }

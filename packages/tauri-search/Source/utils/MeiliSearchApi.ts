@@ -31,6 +31,7 @@ export function MeiliSearchApi<TDoc extends {}>(
 	searchOptions: MeiliSearchOptions = {},
 ) {
 	const baseURL = searchOptions.url || "http://localhost:7700";
+
 	const idx = model.name;
 	// const { adminKey, searchKey } = getEnv();
 
@@ -40,11 +41,14 @@ export function MeiliSearchApi<TDoc extends {}>(
 		options: AxiosRequestConfig = {},
 	): Promise<T> => {
 		const fullUrl = `${baseURL}/${url.startsWith("/") ? url.slice(1) : url}`;
+
 		const token = searchOptions.admin_key || searchOptions.search_key || "";
+
 		const headers: Record<string, any> = {
 			"Access-Control-Allow-Origin": "*",
 			"Content-Type": "application/json",
 		};
+
 		if (token && token.length > 0) {
 			headers["X-Meili-API-Key"] = token;
 			headers["Authorization"] = `Bearer ${token}`;
@@ -68,6 +72,7 @@ export function MeiliSearchApi<TDoc extends {}>(
 							throw new Error(
 								`Unauthorized to use MeiliSearch endpoint [${method.toUpperCase()} /${url}]!`,
 							);
+
 						case 404:
 							throw new Error(
 								`Couldn't find MeiliSearch endpoint [${method.toUpperCase()} /${url}]!`,
@@ -99,12 +104,14 @@ export function MeiliSearchApi<TDoc extends {}>(
 				}
 			}
 		});
+
 		return res?.data;
 	};
 
 	const get = <T>(url: string, options: AxiosRequestConfig = {}) => {
 		return call<T>("get", url, options);
 	};
+
 	const put = <T, U extends any = string>(
 		url: string,
 		data?: string | U,
@@ -115,6 +122,7 @@ export function MeiliSearchApi<TDoc extends {}>(
 			data,
 		});
 	};
+
 	const post = async <T, U extends any = string>(
 		url: string,
 		data?: string | U,
@@ -125,6 +133,7 @@ export function MeiliSearchApi<TDoc extends {}>(
 			data,
 		});
 	};
+
 	const del = <T>(url: string, options: AxiosRequestConfig = {}) => {
 		return call<T>("delete", url, options);
 	};

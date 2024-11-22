@@ -2,7 +2,9 @@ import { refreshProse, refreshRepos, refreshTypescript } from ".";
 
 export async function rebuildCaches() {
 	let prose: [string, number] = ["", 0];
+
 	let repos: [string, number] = ["", 0];
+
 	let typescript: [string, number] = ["", 0];
 	await Promise.all([
 		refreshProse().then(

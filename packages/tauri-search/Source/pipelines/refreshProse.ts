@@ -21,6 +21,7 @@ function jsonFileFromMarkdown(file: string, repo: string, branch: string) {
 
 export function proseDocsCacheFile(repo: string, branch: string) {
 	const dir = `src/generated/ast/prose/${repo}_${branch}`;
+
 	if (!existsSync(dir)) {
 		mkdirSync(dir, { recursive: true });
 	}
@@ -34,9 +35,12 @@ async function cacheMarkdownAst(
 	branch: string,
 ) {
 	const jsonFile = jsonFileFromMarkdown(file, repo, branch);
+
 	const content = (await axios.get(url)).data;
+
 	const ast = await parseMarkdown({ file, content });
 	await writeCacheFile(jsonFile, JSON.stringify(ast));
+
 	return ast;
 }
 
@@ -50,6 +54,7 @@ export async function refreshProse(options: Partial<IEnv> = {}) {
 	const sm = await refreshSitemap();
 
 	const setChanges = [...sm.changes.added, sm.changes.changed];
+
 	const removals = sm.changes.removed;
 
 	if (setChanges.length + removals.length === 0) {
@@ -85,6 +90,7 @@ export async function refreshProse(options: Partial<IEnv> = {}) {
 	}
 
 	const updatedDocs = await Promise.all(docsPromise);
+
 	const updatedKeys = updatedDocs.map((i) => i.id);
 
 	const docs =

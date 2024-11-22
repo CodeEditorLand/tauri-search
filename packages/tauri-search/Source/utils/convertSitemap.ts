@@ -7,6 +7,7 @@ export interface IFlatSitemap {
 	filepath: string;
 	sha: string;
 	size: number;
+
 	download_url: string;
 }
 
@@ -19,6 +20,7 @@ export function flattenSitemap<S extends IDocsSitemap | undefined>(
 	sm: S,
 ): S extends IDocsSitemap ? IFlatSitemap[] : undefined {
 	let flat: IFlatSitemap[] = [];
+
 	if (!sm) {
 		return undefined as S extends IDocsSitemap ? IFlatSitemap[] : undefined;
 	} else {

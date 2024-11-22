@@ -9,6 +9,7 @@ import { getEnv, IEnv } from "../getEnv/node/getEnv";
  */
 export async function getDirectory(o: IEnv) {
 	const { github_token, github_user } = getEnv();
+
 	const url = `${GITHUB_API_BASE}/repos/${o.org}/${o.repo}/contents/${o.docsPath}?ref=${o.branch}`;
 
 	try {
@@ -18,6 +19,7 @@ export async function getDirectory(o: IEnv) {
 				? { auth: { username: github_user, password: github_token } }
 				: {}),
 		});
+
 		if (res.status < 299) {
 			return res;
 		} else {

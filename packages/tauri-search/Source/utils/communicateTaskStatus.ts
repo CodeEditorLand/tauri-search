@@ -27,6 +27,7 @@ export async function communicateTaskStatus(
 			console.log(
 				`- there were also ${final.successful.length} successful ingestions`,
 			);
+
 			if (final.failed.length > 0) {
 				console.log(
 					`- but also ${final.failed.length} failed ingestions`,
@@ -36,6 +37,7 @@ export async function communicateTaskStatus(
 
 		case TaskStatus.success:
 			console.log(`- all documents successfully ingested by MeiliSearch`);
+
 			break;
 
 		case TaskStatus.partialSuccess:
@@ -59,6 +61,7 @@ export async function communicateTaskStatus(
 			console.log(
 				`- ${final.successful.length} documents were ingested successfully`,
 			);
+
 			if (final.failed.length > 0) {
 				console.log(
 					`-e ${final.failed.length} documents failed to ingest: ${final.failed
@@ -81,6 +84,7 @@ export async function communicateTaskStatus(
 					.map((i) => `${i.docId}[${i.taskId}]`)
 					.join(", ")}`,
 			);
+
 			break;
 
 		default:

@@ -17,7 +17,9 @@ export async function refreshRepos() {
 	const { cacheFile } = await getCache(CacheKind.repoDocs);
 
 	const repoPromise: Promise<GithubRepoResp>[] = [];
+
 	const readmePromise: Promise<[string, string | undefined]>[] = [];
+
 	for (const repo of REPOS) {
 		const resp = getRepo(repo);
 		repoPromise.push(resp);
@@ -31,7 +33,9 @@ export async function refreshRepos() {
 	);
 
 	const repos = await Promise.all(repoPromise);
+
 	const docs: IRepoModel[] = [];
+
 	for (const r of repos) {
 		docs.push(GithubMapper({ ...r, text: readmes[r.full_name] }));
 	}

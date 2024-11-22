@@ -18,5 +18,6 @@ export interface IEnv {
 
 	github_token?: string;
 	github_user?: string;
+
 	force?: boolean;
 }

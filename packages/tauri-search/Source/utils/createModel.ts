@@ -23,6 +23,7 @@ export const createModel = <TDoc extends Record<string, any>>(
 			pk: "id",
 		},
 	};
+
 	const updateState = (s: PartialModel<TDoc>) => {
 		if (s.index) {
 			state.index = { ...state.index, ...s.index };
@@ -41,9 +42,12 @@ export const createModel = <TDoc extends Record<string, any>>(
 		} = stage ? { ...getEnv(), stage } : getEnv();
 
 		const url = SERVERS[s]?.url;
+
 		const search_key = SERVERS[s]?.search_key || searchKey;
+
 		const admin_key: string | undefined =
 			adminKey || options.admin_key || "";
+
 		return {
 			...state,
 			query: MeiliSearchApi<TDoc>(state, {

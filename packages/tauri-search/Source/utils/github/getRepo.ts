@@ -8,7 +8,9 @@ export async function getRepo(
 	repo: `${string}/${string}`,
 ): Promise<GithubRepoResp> {
 	const url = `${GITHUB_API_BASE}/repos/${repo}`;
+
 	const { github_token, github_user } = getEnv();
+
 	const res = await axios
 		.get<GithubRepoResp>(url, {
 			httpAgent: "Tauri Search",

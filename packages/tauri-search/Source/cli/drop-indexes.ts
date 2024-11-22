@@ -11,6 +11,7 @@ import { getEnv } from "~/utils/getEnv/node/getEnv";
 		}).query.currentIndexes()
 	).map((i) => i.name);
 	console.log(`- clearing all active indexes: ${active.join(", ")}`);
+
 	for (const idx of active) {
 		await ApiModel(o.stage, { admin_key: o.adminKey }).query.deleteIndex(
 			idx,

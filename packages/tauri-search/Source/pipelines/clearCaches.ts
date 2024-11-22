@@ -6,6 +6,7 @@ import fg from "fast-glob";
  */
 export async function clearCaches() {
 	const files = await fg("src/generated/**/*.json");
+
 	for (const f of files) {
 		await rm(f);
 	}

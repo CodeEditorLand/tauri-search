@@ -7,10 +7,12 @@ import { dirname, join } from "path";
  */
 export async function writeCacheFile(file: string, data: any) {
 	const content = typeof data === "string" ? data : JSON.stringify(data);
+
 	const dir = join(process.cwd(), dirname(file));
 
 	try {
 		await mkdir(dir, { recursive: true });
+
 		return writeFile(file, content, "utf-8");
 	} catch (err) {
 		throw new Error(

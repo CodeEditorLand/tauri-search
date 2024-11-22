@@ -7,6 +7,7 @@ function extractMatter(m: unknown) {
 	switch (typeof m) {
 		case "string":
 			return m;
+
 		case "object":
 			return "content" in (m as Object)
 				? (m as { content: string }).content
@@ -19,6 +20,7 @@ function extractMatter(m: unknown) {
 
 function extractSections(filepath: string) {
 	const parts = filepath.split("/").filter((i) => i !== "docs");
+
 	return {
 		area: parts[0],
 		parentSection: parts.length > 2 ? parts.slice(-2)[0] : undefined,
@@ -31,6 +33,7 @@ function extractSections(filepath: string) {
  */
 export const ProseMapper: ModelMapper<MarkdownAst, IProseModel> = (i) => {
 	const { area, parentSection, section } = extractSections(i.filepath);
+
 	return {
 		id: sanitizeDocId(`prose_${i.filepath}_${i.filename}`),
 		title:

@@ -14,6 +14,7 @@ export interface IDocsSitemapFile {
 	name: string;
 	size: number;
 	sha: string;
+
 	download_url: string;
 }
 
@@ -82,6 +83,7 @@ async function getStructure(o: IEnv) {
 
 	if (children.length > 0) {
 		const waitFor: Promise<IDocsSitemap>[] = [];
+
 		for (const child of children) {
 			if (
 				child.startsWith(
@@ -94,6 +96,7 @@ async function getStructure(o: IEnv) {
 				);
 			} else {
 				const p = join(o.docsPath, `/${child}`);
+
 				const mo: IEnv = { ...o, docsPath: p };
 				waitFor.push(getStructure(mo));
 			}
@@ -116,6 +119,7 @@ export async function refreshSitemap(
 	options: Partial<IEnv> = {},
 ): Promise<Sitemap<IDocsSitemap>> {
 	const o = { ...getEnv(), ...options };
+
 	const sitemap = await getStructure(o);
 	/** flattened version just created sitemap */
 	const flatSitemap = flattenSitemap(sitemap) as IFlatSitemap[];
@@ -123,11 +127,14 @@ export async function refreshSitemap(
 	const { cacheFile, cache } = await getCache(CacheKind.sitemap);
 
 	const existingSitemap = sitemapDictionary(cache);
+
 	const existingFlatmap = flattenSitemap(cache);
 
 	// DELTAs
 	const changed: string[] = [];
+
 	const added: string[] = [];
+
 	const removed: string[] = [];
 
 	if (existingSitemap) {

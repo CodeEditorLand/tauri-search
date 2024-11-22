@@ -31,6 +31,7 @@ export interface TypescriptBlock {
 	flags: {};
 	comment: TsComment;
 	type: TsType;
+
 	defaultValue?: any;
 	signatures?: TypescriptBlock[];
 	children?: TypescriptBlock[];
@@ -123,6 +124,7 @@ export interface TsAstTypeAlias {
 	module: string;
 	comment: TsComment;
 	type: TsType;
+
 	defaultValue: any;
 	fileName: string;
 }
@@ -132,6 +134,7 @@ export interface TsAstVariable {
 	name: string;
 	module: string;
 	comment: TsComment;
+
 	defaultValue?: any;
 	type: TsType;
 	fileName: string;

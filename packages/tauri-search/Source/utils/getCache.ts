@@ -23,12 +23,15 @@ export async function getCache<K extends CacheKind>(
 	options: GetCacheOptions = {},
 ) {
 	const { repo, branch } = { ...getEnv(), ...options };
+
 	let cache;
+
 	let cacheFile;
 
 	switch (kind) {
 		case CacheKind.sitemap:
 			cacheFile = `src/generated/sitemap-${repo}-${branch}.json`;
+
 			try {
 				cache = await readFile(cacheFile, "utf-8").then(
 					(c) => JSON.parse(c) as IDocsSitemap,
@@ -41,6 +44,7 @@ export async function getCache<K extends CacheKind>(
 
 		case CacheKind.proseDocs:
 			cacheFile = `src/generated/prose/${repo}_${branch}/documents.json`;
+
 			try {
 				cache = await readFile(cacheFile, "utf-8").then(
 					(c) => JSON.parse(c) as IProseModel[],
@@ -53,6 +57,7 @@ export async function getCache<K extends CacheKind>(
 
 		case CacheKind.repoDocs:
 			cacheFile = `src/generated/repos/documents.json`;
+
 			try {
 				cache = await readFile(cacheFile, "utf-8").then(
 					(c) => JSON.parse(c) as IRepoModel[],
@@ -65,6 +70,7 @@ export async function getCache<K extends CacheKind>(
 
 		case CacheKind.typescriptDocs:
 			cacheFile = `src/generated/api/${repo}_${branch}/ts-documents.json`;
+
 			try {
 				cache = await readFile(cacheFile, "utf-8").then(
 					(c) => JSON.parse(c) as IApiModel[],
@@ -82,6 +88,7 @@ export async function getCache<K extends CacheKind>(
 			cache = await readFile(cacheFile, "utf-8").then(
 				(c) => JSON.parse(c) as IApiModel[],
 			);
+
 			break;
 
 		default:

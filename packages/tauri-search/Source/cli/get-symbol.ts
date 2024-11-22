@@ -7,7 +7,9 @@ import { TypescriptMapper } from "~/mappers/TypescriptMapper";
 	const symbols = (await parseTypescriptAst()).symbols;
 
 	const find = process.argv[2];
+
 	const found = symbols.find((i) => i.name === find);
+
 	if (found) {
 		console.log({
 			symbol: find,

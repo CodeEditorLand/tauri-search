@@ -8,6 +8,7 @@ import { getEnv } from "~/utils/getEnv/node/getEnv";
 		console.log(`- creating Meilisearch indexes [${options.stage}]`);
 
 		const { skipping, created } = await createIndexes(options);
+
 		if (skipping.length > 0) {
 			console.log(
 				`- the following indexes -- ${skipping.join(

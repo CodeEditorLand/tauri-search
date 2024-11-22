@@ -16,6 +16,7 @@ export function isHeading(something: string): something is "h1" | "h2" | "h3" {
  */
 function validateFrontmatter(f: string, matter: Record<string, any>) {
 	const typedMatter = { ...matter } as ITauriFrontmatter;
+
 	if (matter?.title && typeof matter.title !== "string") {
 		console.error(
 			`The frontmatter for "title" property needs to be a string but was a "${typeof matter.title}" in file ${f}.`,
@@ -52,9 +53,12 @@ function parseContent(f: string, content: string) {
 	// const hash = h32(content);
 	// TODO: turn hashing back on once figure out why Vite is throwing a compiler error
 	const hash = 42;
+
 	const { data: frontmatter, content: text } = matter(content);
+
 	const { h1, h2, h3, hasCodeBlock, programmingLanguages, otherSymbols } =
 		simpleParse(f, content);
+
 	const { filename, filepath } = splitFile(f);
 
 	return {
@@ -88,8 +92,10 @@ function parseContent(f: string, content: string) {
  */
 export async function parseMarkdown<T extends MarkdownInput>(input: T) {
 	let ast: MarkdownAst | MarkdownAst[];
+
 	if (isLocalFiles(input)) {
 		const tokens: MarkdownAst[] = [];
+
 		for (const f of input.files) {
 			try {
 				const content = await readFile(f, { encoding: "utf-8" });
@@ -97,6 +103,7 @@ export async function parseMarkdown<T extends MarkdownInput>(input: T) {
 			} catch (err) {
 				(err as Error).message =
 					`Problem parsing file ${f}: ${(err as Error).message}`;
+
 				throw err;
 			}
 		}
@@ -110,6 +117,7 @@ export async function parseMarkdown<T extends MarkdownInput>(input: T) {
 
 function splitFile(f: string) {
 	const parts = f.split("/");
+
 	return {
 		filename: parts[parts.length - 1],
 		filepath: parts.slice(0, parts.length - 1).join("/"),
@@ -118,13 +126,17 @@ function splitFile(f: string) {
 
 function simpleParse(f: string, content: string) {
 	const ast = smd.defaultBlockParse(content);
+
 	const headings = {
 		h1: [] as { content: string; type: string }[],
 		h2: [] as { content: string; type: string }[],
 		h3: [] as { content: string; type: string }[],
 	};
+
 	const otherSymbols = new Set<string>();
+
 	let hasCodeBlock = false;
+
 	const programmingLanguages = new Set<string>();
 
 	const extract = (nodeArray: smd.SingleASTNode[]) => {
@@ -135,6 +147,7 @@ function simpleParse(f: string, content: string) {
 			switch (node.type) {
 				case "heading":
 					const tag = `h${Number(node.level)}`;
+
 					if (isHeading(tag)) {
 						// the object content appears to be wrapped in an array of length 1
 						// it is possible that in some edge cases the array length is greater
@@ -145,6 +158,7 @@ function simpleParse(f: string, content: string) {
 									type: string;
 								},
 							);
+
 							if (node.content.length > 1) {
 								// console.error(
 								//   `A heading tag in "${f}" was found which accumulated ${
@@ -163,9 +177,11 @@ function simpleParse(f: string, content: string) {
 						otherSymbols.add(tag);
 					}
 					break;
+
 				case "codeBlock":
 					hasCodeBlock = true;
 					programmingLanguages.add(node.lang);
+
 					break;
 
 				case "paragraph":

@@ -13,10 +13,12 @@ import { writeCacheFile } from "~/utils/writeCacheFile";
  */
 export async function refreshTypescript(options: Partial<IEnv> = {}) {
 	const { org, repo, branch, tsAstPath } = { ...getEnv(), ...options };
+
 	const { cacheFile } = await getCache(CacheKind.typescriptDocs, {
 		...getEnv(),
 		...options,
 	});
+
 	const ast = (await getRepoFile(
 		`${org}/${repo}`,
 		tsAstPath,

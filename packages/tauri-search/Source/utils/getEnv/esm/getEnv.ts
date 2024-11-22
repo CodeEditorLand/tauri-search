@@ -4,6 +4,7 @@ import { IEnv, Stage } from "~/types";
 export function getEnv(): IEnv {
 	try {
 		const env = (process.env.NODE_ENV || "local").toLowerCase() as Stage;
+
 		return {
 			org: (import.meta?.env?.ORG as string) || "tauri-apps",
 			repo: (import.meta?.env?.REPO as string) || "tauri-docs",
@@ -41,6 +42,7 @@ export function getEnv(): IEnv {
 		console.warn(
 			`- problems using imports.meta to get ENV variables; skipping for now`,
 		);
+
 		return {
 			org: (import.meta?.env?.ORG as string) || "tauri-apps",
 			repo: (import.meta?.env?.REPO as string) || "tauri-docs",

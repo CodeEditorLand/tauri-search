@@ -17,16 +17,19 @@ export async function pushTypescriptDocs(options: Partial<IEnv> = {}) {
 		CacheKind.typescriptDocs,
 		o,
 	);
+
 	if (docs.length === 0) {
 		docs = (await refreshTypescript(o)).docs;
 	}
 	const errors: IApiModel[] = [];
+
 	const tasks: IMonitoredTask[] = [];
 
 	for (const doc of docs) {
 		const res = await ApiModel(o.stage, {
 			admin_key: o.adminKey,
 		}).query.addOrReplaceDocuments(doc);
+
 		if (res.status !== "enqueued") {
 			errors.push(doc);
 		} else {

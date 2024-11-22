@@ -3,6 +3,7 @@ import { rebuildCaches } from "~/pipelines/rebuildCaches";
 
 (async () => {
 	console.log(`- Rebuilding all caches files`);
+
 	const results = await rebuildCaches();
 	console.log(
 		`- there were ${results.prose[1]} prose docs; saved to ${results.prose[0]}`,

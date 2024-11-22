@@ -55,9 +55,11 @@ async function getStatus(
 		);
 	}
 	const results = await Promise.all(waitFor);
+
 	const successful = results
 		.filter((r) => r.status === "succeeded")
 		.map((i) => i.docId);
+
 	const failed = results
 		.filter((r) => r.status === "failed")
 		.map((i) => ({
@@ -65,15 +67,18 @@ async function getStatus(
 			message: i?.error?.message || "unknown",
 			link: i?.error?.link,
 		}));
+
 	const incomplete = results.filter((r) =>
 		["enqueued", "processing"].includes(r.status || "__"),
 	);
+
 	const unknown = results.filter(
 		(r) =>
 			!["enqueued", "processing", "succeeded", "failed"].includes(
 				r.status || "___",
 			),
 	);
+
 	const status =
 		incomplete.length > 0
 			? TaskStatus.working
@@ -127,24 +132,30 @@ export const monitorTasks = async (
 	options: ITaskStatusOptions,
 ): Promise<IMonitoredTaskStatusComplete> => {
 	const DEFAULT_TIMEOUT = 60000;
+
 	const INITIAL_DELAY = 500;
+
 	const POLLING_INTERVAL = 250;
+
 	const [TIMEOUT, statusCallback] = [
 		options.timeout || DEFAULT_TIMEOUT,
 		options.callback || defaultCallback,
 	];
 
 	const isArray = Array.isArray(tasks);
+
 	const t = !isArray
 		? ([tasks] as unknown as IMonitoredTask[])
 		: (tasks as unknown as IMonitoredTask[]);
 
 	let status = await getStatus(model, t);
+
 	const start = Date.now();
 	await wait(INITIAL_DELAY);
 
 	while (Date.now() - start < TIMEOUT && areWorkingTasks(status)) {
 		status = await getStatus(model, status.incomplete, status);
+
 		if (statusCallback) {
 			statusCallback(status);
 		}

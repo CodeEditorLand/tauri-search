@@ -21,11 +21,14 @@ export async function pushConsolidatedDocs(options: Partial<IEnv> = {}) {
 
 	// push into MeiliSearch task queue
 	const errors: IConsolidatedModel[] = [];
+
 	const tasks: IMonitoredTask[] = [];
+
 	for (const doc of docs) {
 		const res = await ConsolidatedModel(o.stage, {
 			admin_key: o.adminKey,
 		}).query.addOrReplaceDocuments(doc);
+
 		if (res.status !== "enqueued") {
 			errors.push(doc);
 		} else {

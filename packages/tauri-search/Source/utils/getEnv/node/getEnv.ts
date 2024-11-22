@@ -5,6 +5,7 @@ const env = (process.env.NODE_ENV || "local").toLowerCase() as Stage;
 
 export function getEnv(): IEnv {
 	config();
+
 	return {
 		org: process.env.ORG || "tauri-apps",
 		repo: process.env.REPO || "tauri-docs",
