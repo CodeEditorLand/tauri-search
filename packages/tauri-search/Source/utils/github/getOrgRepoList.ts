@@ -3,6 +3,7 @@ import { GITHUB_API_BASE } from "~/constants";
 import axios from "axios";
 
 export type OrgRepoLisReq = Endpoints["GET /orgs/{org}/repos"]["request"];
+
 export type OrgRepoLisResp = Endpoints["GET /orgs/{org}/repos"]["response"];
 
 export async function getOrgRepoList(org: string = "tauri-apps") {

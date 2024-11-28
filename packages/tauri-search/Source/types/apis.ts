@@ -93,6 +93,7 @@ export type StringLiteral = {
 	literals: string[];
 	flags: string[];
 };
+
 export type NumericLiteral = {
 	type: Type.NumericLiteral;
 	literals: number[];
@@ -100,8 +101,11 @@ export type NumericLiteral = {
 };
 
 export type StringProp = { type: Type.String; flags: string[] };
+
 export type NumberProp = { type: Type.Number; flags: string[] };
+
 export type BooleanProp = { type: Type.Boolean; flags: string[] };
+
 export type UndefinedProp = { type: Type.Undefined };
 
 export type ModelPropsApi = {

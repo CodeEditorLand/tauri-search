@@ -4,6 +4,7 @@ import axios from "axios";
 
 export type GithubRepoBranchesReq =
 	Endpoints["GET /repos/{owner}/{repo}/branches"]["request"];
+
 export type GithubRepoBranchesResp =
 	Endpoints["GET /repos/{owner}/{repo}/branches"]["response"];
 

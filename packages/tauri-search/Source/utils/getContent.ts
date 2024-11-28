@@ -4,7 +4,9 @@ import axios from "axios";
 import { getRepoFile } from "./github/getRepoFile";
 
 export type FileSource = { file: string; url?: undefined; repo?: undefined };
+
 export type UrlSource = { url: string; file?: undefined; repo?: undefined };
+
 export type RepoSource = {
 	url?: undefined;
 	file?: undefined;
@@ -14,6 +16,7 @@ export type RepoSource = {
 };
 
 export type IGetContentFallback = FileSource | UrlSource | RepoSource;
+
 export type IGetContentOptions = IGetContentFallback | {};
 
 export function isRepoSource(

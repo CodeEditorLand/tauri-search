@@ -4,8 +4,10 @@ import axios from "axios";
 
 export type GithubCommitsReq =
 	Endpoints["GET /repos/{owner}/{repo}/commits"]["request"];
+
 export type GithubCommitsResp =
 	Endpoints["GET /repos/{owner}/{repo}/commits"]["response"];
+
 export type IGithubCommitsOptions = {
 	page?: number;
 	per_page?: number;
