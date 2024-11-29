@@ -15,6 +15,7 @@ export enum CacheKind {
 
 export interface GetCacheOptions {
 	repo?: string;
+
 	branch?: string;
 }
 
@@ -38,8 +39,10 @@ export async function getCache<K extends CacheKind>(
 				);
 			} catch (err) {
 				cache = undefined;
+
 				console.warn(`- no cache file found at: ${cacheFile}`);
 			}
+
 			break;
 
 		case CacheKind.proseDocs:
@@ -51,8 +54,10 @@ export async function getCache<K extends CacheKind>(
 				);
 			} catch (err) {
 				console.warn(`- no Prose cache file found at: ${cacheFile}`);
+
 				cache = [];
 			}
+
 			break;
 
 		case CacheKind.repoDocs:
@@ -64,8 +69,10 @@ export async function getCache<K extends CacheKind>(
 				);
 			} catch (err) {
 				console.warn(`- no Repo cache file found at: ${cacheFile}`);
+
 				cache = [];
 			}
+
 			break;
 
 		case CacheKind.typescriptDocs:
@@ -79,12 +86,15 @@ export async function getCache<K extends CacheKind>(
 				console.warn(
 					`- no Typescript docs cache found at: ${cacheFile}`,
 				);
+
 				cache = [];
 			}
+
 			break;
 
 		case CacheKind.rustDocs:
 			cacheFile = `src/generated/api/${repo}_${branch}/rs-documents.json`;
+
 			cache = await readFile(cacheFile, "utf-8").then(
 				(c) => JSON.parse(c) as IApiModel[],
 			);

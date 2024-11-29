@@ -16,11 +16,14 @@ import axios, { AxiosRequestConfig } from "axios";
 
 export interface MeiliSearchOptions {
 	url?: string;
+
 	search_key?: string;
+
 	admin_key?: string;
 }
 export type PagingOptions = {
 	limit?: number;
+
 	offset?: number;
 };
 
@@ -51,6 +54,7 @@ export function MeiliSearchApi<TDoc extends {}>(
 
 		if (token && token.length > 0) {
 			headers["X-Meili-API-Key"] = token;
+
 			headers["Authorization"] = `Bearer ${token}`;
 		}
 

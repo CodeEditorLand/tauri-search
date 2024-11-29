@@ -19,30 +19,35 @@ export const modelConfigApi = <TDoc extends {}>(
 				if (props?.length > 0) {
 					update({ index: { searchable: props } });
 				}
+
 				return api<TExclude | "searchable", M>();
 			},
 			displayed(...props) {
 				if (props?.length > 0) {
 					update({ index: { displayed: props } });
 				}
+
 				return api<TExclude | "displayed", M>();
 			},
 			distinct(...props) {
 				if (props?.length > 0) {
 					update({ index: { distinct: props } });
 				}
+
 				return api<TExclude | "distinct", M>();
 			},
 			filterable(...props) {
 				if (props?.length > 0) {
 					update({ index: { filterable: props } });
 				}
+
 				return api<TExclude | "filterable", M>();
 			},
 			sortable(...props) {
 				if (props?.length > 0) {
 					update({ index: { sortable: props } });
 				}
+
 				return api<TExclude | "searchable", M>();
 			},
 			stopWords(words) {
@@ -63,6 +68,7 @@ export const modelConfigApi = <TDoc extends {}>(
 				};
 
 				const ruleApi = rankingRules(updateRules);
+
 				cb(ruleApi);
 
 				return api<TExclude | "rankingRules">();

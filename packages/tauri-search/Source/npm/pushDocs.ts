@@ -33,6 +33,7 @@ export async function pushDocs(
 			t.push(ConsolidatedModel().query.addOrReplaceDocuments(doc));
 		}
 	}
+
 	const tasks = await Promise.all(t);
 
 	return tasks;

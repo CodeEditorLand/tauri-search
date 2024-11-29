@@ -5,6 +5,7 @@ import { createModel } from "~/utils/createModel";
 
 export interface IApiModel {
 	id: string;
+
 	language: "rust" | "typescript";
 	/** the name of the Symbol */
 	name: string;
@@ -29,12 +30,16 @@ export interface IApiModel {
 	tags?: string[];
 
 	comment?: string;
+
 	commentTags?: TsComment["tags"];
 
 	parameters?: {
 		name: string;
+
 		type?: string;
+
 		comment?: string;
+
 		kind: TypescriptKind;
 	}[];
 

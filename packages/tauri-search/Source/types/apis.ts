@@ -67,6 +67,7 @@ export type RankingRulesApi<
 		words: () => RankingRulesApi<TDoc, E | "words">;
 
 		ASC: (prop: keyof TDoc) => RankingRulesApi<TDoc, E>;
+
 		DESC: (prop: keyof TDoc) => RankingRulesApi<TDoc, E>;
 	},
 	E
@@ -84,19 +85,25 @@ export type IndexSynonyms = Record<string, string[]>;
 
 export type DocumentProperty = {
 	type: Type;
+
 	literals: string[] | number[];
+
 	flags: string[];
 };
 
 export type StringLiteral = {
 	type: Type.StringLiteral;
+
 	literals: string[];
+
 	flags: string[];
 };
 
 export type NumericLiteral = {
 	type: Type.NumericLiteral;
+
 	literals: number[];
+
 	flags: string[];
 };
 
@@ -116,10 +123,13 @@ export type ModelPropsApi = {
 	string: <StringLiteral extends string[]>(
 		...literals: StringLiteral
 	) => PropCharacteristicsApi<never>;
+
 	url: () => PropCharacteristicsApi<never>;
+
 	number: <NumericLiteral extends number[]>(
 		...literals: NumericLiteral
 	) => PropCharacteristicsApi<never>;
+
 	boolean: () => PropCharacteristicsApi<never>;
 };
 

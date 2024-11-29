@@ -6,12 +6,15 @@ import { getEnv } from "~/utils/getEnv/node/getEnv";
 
 (async () => {
 	const o = getEnv();
+
 	console.log(
 		`- pushing all individual doc caches into a consolidated index [${o.stage}]`,
 	);
 
 	const { tasks } = await pushConsolidatedDocs(o);
+
 	console.log();
+
 	console.log(
 		`- all consolidated documents [${tasks.length}] have been pushed to MeiliSearch queue`,
 	);

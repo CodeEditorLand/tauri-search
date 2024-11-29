@@ -16,6 +16,7 @@ export async function getRepoFile(
 	if (!branch) {
 		branch = await getRepoDefaultBranch(repo);
 	}
+
 	const url = `https://raw.githubusercontent.com/${repo}/${branch}/${filepath}`;
 
 	return getUrl(url);

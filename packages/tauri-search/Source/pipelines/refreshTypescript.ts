@@ -26,7 +26,9 @@ export async function refreshTypescript(options: Partial<IEnv> = {}) {
 	)) as TypescriptBlock;
 
 	const simplified = await parseTypescriptAst(ast);
+
 	writeFileSync("ast.json", JSON.stringify(ast));
+
 	writeFileSync("simplified.json", JSON.stringify(simplified));
 
 	const docs: IApiModel[] = simplified.symbols.map((i) =>

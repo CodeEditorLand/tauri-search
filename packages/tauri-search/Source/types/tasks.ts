@@ -5,7 +5,9 @@ export interface IMonitoredTask {
 	docId: string;
 	/** the task ID assigned by Meilisearch */
 	taskId: number;
+
 	status?: string;
+
 	error?: IMeilisearchTaskStatus["error"];
 }
 
@@ -30,6 +32,7 @@ export interface IMonitoredTaskStatusWorking {
 	incomplete: IMonitoredTask[];
 	/** document's which left the "enqueued" state but ended in an unknown/unexpected state */
 	unknown: IMonitoredTask[];
+
 	delta: { successful: string[]; failed: string[] };
 }
 
@@ -44,6 +47,7 @@ export interface IMonitoredTaskStatusComplete {
 	successful: string[];
 
 	failed: { docId: string; message: string; link?: string }[];
+
 	incomplete: IMonitoredTask[];
 	/** document's which left the "enqueued" state but ended in an unknown/unexpected state */
 	unknown: IMonitoredTask[];
@@ -55,5 +59,6 @@ export type IMonitoredTaskStatus =
 
 export interface ITaskStatusOptions {
 	timeout?: number;
+
 	callback?: (s: IMonitoredTaskStatus) => void;
 }

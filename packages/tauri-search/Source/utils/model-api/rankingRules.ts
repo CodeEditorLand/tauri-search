@@ -9,6 +9,7 @@ export const rankingRules = <TDoc extends {}>(
 		return {
 			typo: () => {
 				const updated = [...rules, "typo"] as RankingRule<TDoc>[];
+
 				update(updated);
 
 				return api<TDoc, E | "typo">(updated);
@@ -16,6 +17,7 @@ export const rankingRules = <TDoc extends {}>(
 
 			proximity: () => {
 				const updated = [...rules, "proximity"] as RankingRule<TDoc>[];
+
 				update(updated);
 
 				return api<TDoc, E | "proximity">(updated);
@@ -23,6 +25,7 @@ export const rankingRules = <TDoc extends {}>(
 
 			attribute: () => {
 				const updated = [...rules, "attribute"] as RankingRule<TDoc>[];
+
 				update(updated);
 
 				return api<TDoc, E | "attribute">(updated);
@@ -30,6 +33,7 @@ export const rankingRules = <TDoc extends {}>(
 
 			exactness: () => {
 				const updated = [...rules, "exactness"] as RankingRule<TDoc>[];
+
 				update(updated);
 
 				return api<TDoc, E | "exactness">(updated);
@@ -37,12 +41,14 @@ export const rankingRules = <TDoc extends {}>(
 
 			sort: () => {
 				const updated = [...rules, "sort"] as RankingRule<TDoc>[];
+
 				update(updated);
 
 				return api<TDoc, E | "sort">(updated);
 			},
 			words: () => {
 				const updated = [...rules, "words"] as RankingRule<TDoc>[];
+
 				update(updated);
 
 				return api<TDoc, E | "words">(updated);
@@ -56,6 +62,7 @@ export const rankingRules = <TDoc extends {}>(
 					...rules,
 					`${prop}:asc`,
 				] as RankingRule<TDoc>[];
+
 				update(updated);
 
 				return api<TDoc, E>(updated);
@@ -65,6 +72,7 @@ export const rankingRules = <TDoc extends {}>(
 					...rules,
 					`${prop}:desc`,
 				] as RankingRule<TDoc>[];
+
 				update(updated);
 
 				return api<TDoc, E>(updated);

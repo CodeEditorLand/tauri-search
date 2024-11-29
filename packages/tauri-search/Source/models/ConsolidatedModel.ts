@@ -29,6 +29,7 @@ export type IConsolidatedModel = Omit<
 	 * The source content/index which this document was derived from
 	 */
 	from: "prose" | "api" | "repo";
+
 	rank: number;
 
 	/**

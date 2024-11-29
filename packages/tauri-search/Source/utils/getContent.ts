@@ -9,9 +9,13 @@ export type UrlSource = { url: string; file?: undefined; repo?: undefined };
 
 export type RepoSource = {
 	url?: undefined;
+
 	file?: undefined;
+
 	repo: `${string}/${string}`;
+
 	filepath: string;
+
 	branch?: string;
 };
 

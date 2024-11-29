@@ -6,9 +6,11 @@ import { getEnv } from "~/utils/getEnv/node/getEnv";
 
 (async () => {
 	const o = getEnv();
+
 	console.log(`- Pushing Repo document cache into MeiliSearch`);
 
 	const { docs, errors, tasks } = await pushRepoDocs(o);
+
 	console.log();
 
 	if (errors.length > 0) {
@@ -17,6 +19,7 @@ import { getEnv } from "~/utils/getEnv/node/getEnv";
 				docs.length
 			} encountered errors:\n\t${errors.map((e) => e.name).join(", ")}`,
 		);
+
 		process.exit(1);
 	} else {
 		console.log(

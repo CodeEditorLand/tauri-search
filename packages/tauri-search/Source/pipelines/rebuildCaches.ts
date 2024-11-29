@@ -6,6 +6,7 @@ export async function rebuildCaches() {
 	let repos: [string, number] = ["", 0];
 
 	let typescript: [string, number] = ["", 0];
+
 	await Promise.all([
 		refreshProse().then(
 			(c) => (prose = [c.cacheFile as string, c.docs?.length || 0]),

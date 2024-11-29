@@ -16,6 +16,7 @@ function defaultCallback(status: IMonitoredTaskStatus) {
 		for (const _s of status.delta.successful) {
 			process.stdout.write(".");
 		}
+
 		for (const _f of status.delta.failed) {
 			process.stdout.write("x");
 		}
@@ -42,6 +43,7 @@ async function getStatus(
 	if (prior && areCompletedTasks(prior)) {
 		throw new Error(`Completed tasks sent to getStatus()!`);
 	}
+
 	const waitFor: Promise<IMonitoredTask>[] = [];
 
 	for (const t of tasks) {
@@ -54,6 +56,7 @@ async function getStatus(
 			})),
 		);
 	}
+
 	const results = await Promise.all(waitFor);
 
 	const successful = results
@@ -151,6 +154,7 @@ export const monitorTasks = async (
 	let status = await getStatus(model, t);
 
 	const start = Date.now();
+
 	await wait(INITIAL_DELAY);
 
 	while (Date.now() - start < TIMEOUT && areWorkingTasks(status)) {
@@ -159,6 +163,7 @@ export const monitorTasks = async (
 		if (statusCallback) {
 			statusCallback(status);
 		}
+
 		await wait(POLLING_INTERVAL);
 	}
 

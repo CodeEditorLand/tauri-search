@@ -36,6 +36,7 @@ import { communicateTaskStatus } from "~/utils/communicateTaskStatus";
 						},
 					)}`,
 				);
+
 				await model.query.createIndex();
 			}
 		},
@@ -44,6 +45,7 @@ import { communicateTaskStatus } from "~/utils/communicateTaskStatus";
 	console.log(`- Pushing "prose" documents to MeiliSearch`);
 
 	const proseTasks = await pushProseDocs();
+
 	console.log(
 		`- all ${proseTasks.length} documents were pushed via API; monitoring task status ...`,
 	);
@@ -56,9 +58,12 @@ import { communicateTaskStatus } from "~/utils/communicateTaskStatus";
 		console.log(
 			"- No cache for Repo documents found, so refreshing cache first",
 		);
+
 		await refreshRepos();
 	}
+
 	const { docs, errors, tasks: repoTasks } = await pushRepoDocs();
+
 	console.log();
 
 	if (errors.length > 0) {
@@ -67,6 +72,7 @@ import { communicateTaskStatus } from "~/utils/communicateTaskStatus";
 				docs.length
 			} encountered errors:\n\t${errors.map((e) => e.name).join(", ")}`,
 		);
+
 		process.exit(1);
 	} else {
 		console.log(
@@ -79,12 +85,14 @@ import { communicateTaskStatus } from "~/utils/communicateTaskStatus";
 			console.log(
 				`- The Typescript documents cache wasn't found; creating first`,
 			);
+
 			await refreshTypescript();
 		}
 
 		console.log(`- Starting update process for Typescript API documents`);
 
 		const { errors, tasks } = await pushTypescriptDocs();
+
 		console.log();
 
 		if (errors.length > 0) {
@@ -95,16 +103,20 @@ import { communicateTaskStatus } from "~/utils/communicateTaskStatus";
 					.map((e) => e.name)
 					.join(", ")}`,
 			);
+
 			process.exit(1);
 		} else {
 			console.log(
 				`- Completed pushing all Typescript docs [${tasks.length}] to MeiliSearch. Now monitoring task progress ...`,
 			);
+
 			communicateTaskStatus(ApiModel(), tasks, { timeout: 45000 });
 		}
 
 		const { tasks: consolidatedTasks } = await pushConsolidatedDocs();
+
 		console.log();
+
 		console.log(
 			`- all consolidated documents [${tasks.length}] have been pushed to MeiliSearch queue`,
 		);

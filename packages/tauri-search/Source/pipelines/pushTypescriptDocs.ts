@@ -21,6 +21,7 @@ export async function pushTypescriptDocs(options: Partial<IEnv> = {}) {
 	if (docs.length === 0) {
 		docs = (await refreshTypescript(o)).docs;
 	}
+
 	const errors: IApiModel[] = [];
 
 	const tasks: IMonitoredTask[] = [];

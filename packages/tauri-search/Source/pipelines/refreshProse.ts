@@ -25,6 +25,7 @@ export function proseDocsCacheFile(repo: string, branch: string) {
 	if (!existsSync(dir)) {
 		mkdirSync(dir, { recursive: true });
 	}
+
 	return join(dir, "documents.json");
 }
 
@@ -39,6 +40,7 @@ async function cacheMarkdownAst(
 	const content = (await axios.get(url)).data;
 
 	const ast = await parseMarkdown({ file, content });
+
 	await writeCacheFile(jsonFile, JSON.stringify(ast));
 
 	return ast;

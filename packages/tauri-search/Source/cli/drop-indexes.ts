@@ -10,6 +10,7 @@ import { getEnv } from "~/utils/getEnv/node/getEnv";
 			admin_key: o.adminKey,
 		}).query.currentIndexes()
 	).map((i) => i.name);
+
 	console.log(`- clearing all active indexes: ${active.join(", ")}`);
 
 	for (const idx of active) {

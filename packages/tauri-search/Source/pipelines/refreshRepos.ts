@@ -22,9 +22,12 @@ export async function refreshRepos() {
 
 	for (const repo of REPOS) {
 		const resp = getRepo(repo);
+
 		repoPromise.push(resp);
+
 		readmePromise.push(getRepoReadme(repo).then((i) => [repo, i]));
 	}
+
 	const readmes = (await Promise.all(readmePromise)).reduce(
 		(acc, tuple) => {
 			return { ...acc, [tuple[0]]: tuple[1] };
@@ -39,6 +42,7 @@ export async function refreshRepos() {
 	for (const r of repos) {
 		docs.push(GithubMapper({ ...r, text: readmes[r.full_name] }));
 	}
+
 	await writeCacheFile(cacheFile, docs);
 
 	return { cacheFile, docs };

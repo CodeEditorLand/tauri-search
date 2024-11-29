@@ -24,6 +24,7 @@ export async function createIndexes(options: Partial<IEnv> = {}) {
 			).join(", ")}`,
 		);
 	}
+
 	const skipping = (
 		await ProseModel(stage, { admin_key: adminKey }).query.currentIndexes()
 	).map((i) => i.name);

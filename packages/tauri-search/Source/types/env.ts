@@ -2,7 +2,9 @@ import { Stage } from "./model";
 
 export interface IEnv {
 	org: string;
+
 	repo: string;
+
 	branch: string;
 
 	stage: Stage;
@@ -14,9 +16,11 @@ export interface IEnv {
 	tsAstPath: string;
 
 	adminKey?: string;
+
 	searchKey?: string;
 
 	github_token?: string;
+
 	github_user?: string;
 
 	force?: boolean;

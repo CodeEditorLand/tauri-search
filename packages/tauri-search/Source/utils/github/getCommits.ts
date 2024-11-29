@@ -10,10 +10,15 @@ export type GithubCommitsResp =
 
 export type IGithubCommitsOptions = {
 	page?: number;
+
 	per_page?: number;
+
 	sha?: string;
+
 	path?: string;
+
 	since?: string;
+
 	until?: string;
 };
 

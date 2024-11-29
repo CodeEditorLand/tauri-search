@@ -5,7 +5,9 @@ import { omit } from "native-dash";
 export interface IFlatSitemap {
 	/** the full "relative path" (aka, dir and filename combined) */
 	filepath: string;
+
 	sha: string;
+
 	size: number;
 
 	download_url: string;
@@ -26,6 +28,7 @@ export function flattenSitemap<S extends IDocsSitemap | undefined>(
 	} else {
 		for (const f of sm?.files || []) {
 			const filepath = join(sm.dir, f.name);
+
 			flat.push({
 				filepath,
 				sha: f.sha,
@@ -33,12 +36,14 @@ export function flattenSitemap<S extends IDocsSitemap | undefined>(
 				download_url: f.download_url,
 			});
 		}
+
 		if (sm.children && sm.children.length > 0) {
 			for (const child of sm.children) {
 				flat = flat.concat(...flattenSitemap(child));
 			}
 		}
 	}
+
 	return flat as S extends IDocsSitemap ? IFlatSitemap[] : undefined;
 }
 

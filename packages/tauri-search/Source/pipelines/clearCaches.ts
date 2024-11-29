@@ -10,5 +10,6 @@ export async function clearCaches() {
 	for (const f of files) {
 		await rm(f);
 	}
+
 	return files;
 }

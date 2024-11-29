@@ -15,18 +15,23 @@ export type IndexApi<TDoc, TExclude extends string = never> = Omit<
 		 * By default the primary key will be `id` but this can be overridden where it makes sense
 		 */
 		pk: (pk: string) => IndexApi<TDoc, TExclude | "pk">;
+
 		searchable: (
 			...props: Wildcard<TDoc>
 		) => IndexApi<TDoc, TExclude | "searchable">;
+
 		displayed: (
 			...props: Wildcard<TDoc>
 		) => IndexApi<TDoc, TExclude | "displayed">;
+
 		distinct: (
 			...props: Wildcard<TDoc>
 		) => IndexApi<TDoc, TExclude | "distinct">;
+
 		filterable: (
 			...props: Wildcard<TDoc>
 		) => IndexApi<TDoc, TExclude | "filterable">;
+
 		sortable: (
 			...props: Wildcard<TDoc>
 		) => IndexApi<TDoc, TExclude | "sortable">;
@@ -67,19 +72,31 @@ export type IndexApi<TDoc, TExclude extends string = never> = Omit<
  */
 export type ISearchModel<TDoc extends {}> = {
 	name: string;
+
 	type: TDoc;
+
 	index: {
 		pk: string;
+
 		rules?: RankingRule<TDoc>[];
+
 		displayed?: Wildcard<TDoc>;
+
 		searchable?: Wildcard<TDoc>;
+
 		filterable?: Wildcard<TDoc>;
+
 		distinct?: Wildcard<TDoc>;
+
 		sortable?: Wildcard<TDoc>;
+
 		stopWords?: string[];
+
 		synonyms?: IndexSynonyms;
 	};
+
 	query: IMeiliSearchQueryApi<TDoc>;
+
 	toString(): string;
 };
 

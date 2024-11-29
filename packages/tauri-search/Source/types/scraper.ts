@@ -10,6 +10,7 @@ export type ScrapeSelector =
 	/** but there is an object notation for greater control */
 	| {
 			selector: string;
+
 			global?: boolean;
 			/**
 			 * will be the displayed value if no content in selector was found.
@@ -19,18 +20,31 @@ export type ScrapeSelector =
 
 export type IScrapeSelectorTargets = {
 	objectID: string;
+
 	hierarchy_lvl0: ScrapeSelector;
+
 	hierarchy_lvl1: ScrapeSelector;
+
 	hierarchy_lvl2: ScrapeSelector;
+
 	hierarchy_lvl3: ScrapeSelector;
+
 	hierarchy_lvl4: ScrapeSelector;
+
 	hierarchy_lvl5: ScrapeSelector;
+
 	hierarchy_lvl6: ScrapeSelector;
+
 	hierarchy_radio_lvl0: ScrapeSelector;
+
 	hierarchy_radio_lvl1: ScrapeSelector;
+
 	hierarchy_radio_lvl2: ScrapeSelector;
+
 	hierarchy_radio_lvl3: ScrapeSelector;
+
 	hierarchy_radio_lvl4: ScrapeSelector;
+
 	hierarchy_radio_lvl5: ScrapeSelector;
 	/** the main body of text */
 	content: ScrapeSelector;
@@ -42,6 +56,7 @@ export type ScrapeUrls =
 	| string
 	| {
 			url: string;
+
 			selectors_key: string;
 	  };
 

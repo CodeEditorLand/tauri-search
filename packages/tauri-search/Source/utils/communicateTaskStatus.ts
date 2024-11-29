@@ -14,6 +14,7 @@ export async function communicateTaskStatus(
 	options: ITaskStatusOptions = {},
 ) {
 	const final = await monitorTasks(model, tasks, options);
+
 	console.log();
 
 	switch (final.status) {
@@ -21,9 +22,11 @@ export async function communicateTaskStatus(
 			console.log(
 				`- there were ${final.unknown.length} documents which ended in an unknown/unexpected state`,
 			);
+
 			console.log(
 				`    - ${final.unknown.map((i) => `${i.docId}[${i.status}, ${i.taskId}]`)}`,
 			);
+
 			console.log(
 				`- there were also ${final.successful.length} successful ingestions`,
 			);
@@ -33,6 +36,7 @@ export async function communicateTaskStatus(
 					`- but also ${final.failed.length} failed ingestions`,
 				);
 			}
+
 			process.exit(1);
 
 		case TaskStatus.success:
@@ -44,6 +48,7 @@ export async function communicateTaskStatus(
 			console.log(
 				`- ${final.successful.length} documents were ingested successfully but ${final.failed.length} failed. Failures detailed below:`,
 			);
+
 			console.log(
 				final.failed
 					.map(
@@ -52,12 +57,14 @@ export async function communicateTaskStatus(
 					)
 					.join("\n"),
 			);
+
 			process.exit(1);
 
 		case TaskStatus.timeout:
 			console.log(
 				`- The full set of documents was not completed in the TIMEOUT window.`,
 			);
+
 			console.log(
 				`- ${final.successful.length} documents were ingested successfully`,
 			);
@@ -69,14 +76,17 @@ export async function communicateTaskStatus(
 						.join(", ")}`,
 				);
 			}
+
 			if (final?.unknown?.length > 0) {
 				console.log(
 					`- there were ${final.unknown.length} documents which ended in an unknown/unexpected state`,
 				);
+
 				console.log(
 					`    - ${final.unknown.map((i) => `${i.docId}[${i.status}, ${i.taskId}]`)}`,
 				);
 			}
+
 			console.log(
 				`- ${
 					final.incomplete.length

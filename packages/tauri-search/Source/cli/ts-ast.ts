@@ -5,5 +5,6 @@ import { parseTypescriptAst } from "~/ast/parseTypescriptAst";
 
 (async () => {
 	const ast = await parseTypescriptAst();
+
 	console.log(JSON.stringify(ast));
 })();

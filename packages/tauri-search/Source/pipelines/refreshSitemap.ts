@@ -12,7 +12,9 @@ import { writeCacheFile } from "~/utils/writeCacheFile";
 
 export interface IDocsSitemapFile {
 	name: string;
+
 	size: number;
+
 	sha: string;
 
 	download_url: string;
@@ -20,7 +22,9 @@ export interface IDocsSitemapFile {
 
 export interface IDocsSitemap {
 	dir: string;
+
 	files: IDocsSitemapFile[];
+
 	children: IDocsSitemap[];
 }
 
@@ -29,12 +33,18 @@ export interface IDocsSitemap {
  */
 export type Sitemap<T extends IDocsSitemap> = {
 	hasDeltaInfo: boolean;
+
 	cacheFile: string;
+
 	sitemap: T;
+
 	count: number;
+
 	changes: {
 		added: string[];
+
 		changed: string[];
+
 		removed: string[];
 	};
 };
@@ -49,6 +59,7 @@ function reduceClutter(
 	if (!Array.isArray(resp)) {
 		resp = [resp];
 	}
+
 	const files: IDocsSitemap["files"] = resp
 		.filter((i) => i.type === "file" && i.name.endsWith(".md"))
 		.map((f) => ({
@@ -98,10 +109,13 @@ async function getStructure(o: IEnv) {
 				const p = join(o.docsPath, `/${child}`);
 
 				const mo: IEnv = { ...o, docsPath: p };
+
 				waitFor.push(getStructure(mo));
 			}
 		}
+
 		const resolved = await Promise.all(waitFor);
+
 		sitemap.children = resolved;
 	}
 

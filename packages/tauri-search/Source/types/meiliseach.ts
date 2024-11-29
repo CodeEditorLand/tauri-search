@@ -5,37 +5,55 @@ import { RankingRule, Wildcard } from ".";
 
 export interface MsIndexStatusResponse {
 	uid: string;
+
 	name: string;
+
 	createdAt: string;
+
 	updatedAt: string;
+
 	primaryKey: string;
 }
 
 export interface IMeilisearchIndexStatsResponse {
 	numberOfDocuments: number;
+
 	isIndexing: boolean;
+
 	fieldDistribution: Record<string, any>;
 }
 
 export interface IMeilisearchTaskStatus {
 	uid: number;
+
 	indexUid: string;
+
 	status: string;
+
 	type: string;
+
 	error?: {
 		message: string;
+
 		link?: string;
+
 		type: string;
+
 		code: string;
 	};
+
 	enqueuedAt: string;
 }
 
 export interface IMeilisearchAddOrReplace {
 	uid: number;
+
 	indexUid: string;
+
 	status: string;
+
 	type: string;
+
 	enqueuedAt: string;
 }
 
@@ -45,12 +63,19 @@ export type IMeilisearchSearchHit<T extends {}> = {
 
 export interface IMeilisearchSettingsResponse<TDoc extends {}> {
 	displayAttributes: (keyof TDoc)[] | ["*"];
+
 	searchableAttributes: (keyof TDoc)[] | ["*"];
+
 	filterAttributes: (keyof TDoc)[] | ["*"];
+
 	sortableAttributes: (keyof TDoc)[] | ["*"];
+
 	rankingRules: RankingRule<TDoc>[];
+
 	stopWords: string[];
+
 	synonyms: Record<string, string[]>;
+
 	distinctAttribute: null | (keyof TDoc)[] | ["*"];
 }
 
@@ -89,6 +114,7 @@ export type datetime = string;
 
 export interface IMeilisearchInterface {
 	uid: string;
+
 	name: string;
 	/** datetime string (aka., 2022-01-23T22:47:42.745395044Z) */
 	createdAt: datetime;
@@ -103,7 +129,9 @@ export interface IMeilisearchInterface {
 
 export interface IMeilisearchIndex {
 	numberOfDocuments: number;
+
 	isIndexing: false;
+
 	fieldDistribution: Record<string, any>;
 }
 
@@ -112,7 +140,9 @@ export interface IMeilisearchIndex {
  */
 export interface IMeiliSearchStats {
 	databaseSize: number;
+
 	lastUpdate: datetime;
+
 	indexes: Record<string, IMeilisearchIndex>;
 }
 
@@ -120,31 +150,49 @@ export type GenericDoc = { id: string; _idx?: string; [key: string]: unknown };
 
 export interface IMeilisearchSearchResponse<T extends {} = GenericDoc> {
 	hits: IMeilisearchSearchHit<T>[];
+
 	limit: number;
+
 	nbHits: number;
+
 	offset: number;
+
 	processingTimeMs: number;
+
 	query: string;
 }
 
 export interface IMeilisearchIndexTask {
 	uid: number;
+
 	indexUid: string;
+
 	status: string;
+
 	type: string;
+
 	details: {
 		receiveDocuments: number;
+
 		indexedDocuments: number;
 	};
+
 	error?: {
 		message: string;
+
 		link?: string;
+
 		type: string;
+
 		code: string;
 	};
+
 	duration: string;
+
 	enqueuedAt: string;
+
 	startedAt: string;
+
 	finishedAt: string;
 }
 
@@ -154,6 +202,7 @@ export interface IMeilisearchAllTasks {
 
 export interface IMeilisearchVersion {
 	comitSha: string;
+
 	commitDate: string;
 	/** semver represented as string */
 	pkgVersion: string;
@@ -189,9 +238,11 @@ export interface IMeiliSearchQueryApi<TDoc extends {}> {
 	getIndexTasks: () => Promise<IMeilisearchAllTasks>;
 
 	getDocument: (docId: string) => Promise<TDoc>;
+
 	deleteDocument: (docId: string) => Promise<IMeilisearchTaskStatus>;
 
 	getDocuments: (o?: AxiosRequestConfig) => Promise<TDoc[]>;
+
 	deleteAllDocuments: () => Promise<IMeilisearchTaskStatus>;
 	/**
 	 * Delete's an index on MeiliSeach (including all docs).
@@ -201,10 +252,12 @@ export interface IMeiliSearchQueryApi<TDoc extends {}> {
 	 * override that to whatever you like.
 	 */
 	deleteIndex: (idx?: string) => Promise<IMeilisearchTaskStatus>;
+
 	addOrReplaceDocuments: (
 		doc: TDoc,
 		o?: ApiOptions,
 	) => Promise<IMeilisearchAddOrReplace>;
+
 	addOrUpdateDocuments: (
 		doc: TDoc,
 		o?: ApiOptions,
@@ -218,30 +271,42 @@ export interface IMeiliSearchQueryApi<TDoc extends {}> {
 	getIndexSettings: (
 		override?: string,
 	) => Promise<IMeilisearchIndexSettings<TDoc>>;
+
 	updateIndexSettings: (
 		settings: IMeilisearchIndexSettings<TDoc>,
 	) => Promise<IMeilisearchTaskStatus>;
 
 	resetIndexSettings: () => Promise<IMeilisearchTaskStatus>;
+
 	updateRankingRules: () => Promise<IMeilisearchTaskStatus>;
+
 	updateDistinctAttribute: () => Promise<IMeilisearchTaskStatus>;
+
 	updateSearchableAttributes: () => Promise<IMeilisearchTaskStatus>;
+
 	updateSortableAttributes: () => Promise<IMeilisearchTaskStatus>;
+
 	updateDisplayedAttributes: () => Promise<IMeilisearchTaskStatus>;
+
 	updateSynonyms: () => Promise<IMeilisearchTaskStatus>;
+
 	updateStopWords: () => Promise<IMeilisearchTaskStatus>;
 
 	//  cross-index
 
 	stats: () => Promise<IMeiliSearchStats>;
+
 	health: () => Promise<IMeiliSearchHealth>;
 	/** all of the indexes which currently exist in MeiliSearch */
 	currentIndexes: () => Promise<MsIndexStatusResponse[]>;
+
 	version: () => Promise<IMeilisearchVersion>;
 
 	getKeys: () => Promise<IMeilisearchKey[]>;
 
 	getTask: (id: number) => Promise<IMeilisearchTaskStatus>;
+
 	createKey: (key: IMeilisearchKey) => Promise<IMeilisearchTaskStatus>;
+
 	deleteKey: (key: string) => Promise<IMeilisearchTaskStatus>;
 }

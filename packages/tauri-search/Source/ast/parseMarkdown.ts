@@ -21,6 +21,7 @@ function validateFrontmatter(f: string, matter: Record<string, any>) {
 		console.error(
 			`The frontmatter for "title" property needs to be a string but was a "${typeof matter.title}" in file ${f}.`,
 		);
+
 		typedMatter.title = "UNKNOWN";
 	}
 
@@ -28,12 +29,15 @@ function validateFrontmatter(f: string, matter: Record<string, any>) {
 		console.error(
 			`The frontmatter for "tags" property needs to be an array of strings but was detected as "${typeof matter.title}" in file ${f}.`,
 		);
+
 		typedMatter.tags = [];
 	}
+
 	if (matter?.category && typeof matter.category !== "string") {
 		console.error(
 			`The frontmatter for "category" property needs to be a string but was a "${typeof matter.title}" in file ${f}.`,
 		);
+
 		typedMatter.category = undefined;
 	}
 
@@ -99,6 +103,7 @@ export async function parseMarkdown<T extends MarkdownInput>(input: T) {
 		for (const f of input.files) {
 			try {
 				const content = await readFile(f, { encoding: "utf-8" });
+
 				tokens.push(parseContent(f, content));
 			} catch (err) {
 				(err as Error).message =
@@ -107,6 +112,7 @@ export async function parseMarkdown<T extends MarkdownInput>(input: T) {
 				throw err;
 			}
 		}
+
 		ast = tokens;
 	} else {
 		ast = parseContent(input.file, input.content);
@@ -143,6 +149,7 @@ function simpleParse(f: string, content: string) {
 		if (!Array.isArray(nodeArray)) {
 			return;
 		}
+
 		for (const node of nodeArray) {
 			switch (node.type) {
 				case "heading":
@@ -155,6 +162,7 @@ function simpleParse(f: string, content: string) {
 							headings[tag].push(
 								node.content[0] as {
 									content: string;
+
 									type: string;
 								},
 							);
@@ -176,10 +184,12 @@ function simpleParse(f: string, content: string) {
 					} else {
 						otherSymbols.add(tag);
 					}
+
 					break;
 
 				case "codeBlock":
 					hasCodeBlock = true;
+
 					programmingLanguages.add(node.lang);
 
 					break;
@@ -188,6 +198,7 @@ function simpleParse(f: string, content: string) {
 					if (Array.isArray(node.content)) {
 						extract(node.content);
 					}
+
 					break;
 
 				default:
@@ -203,6 +214,7 @@ function simpleParse(f: string, content: string) {
 			}
 		}
 	};
+
 	extract(ast);
 
 	return {

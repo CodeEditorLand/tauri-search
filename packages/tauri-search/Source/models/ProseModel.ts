@@ -28,6 +28,7 @@ export interface IProseModel {
 	code?: string[];
 
 	text: string;
+
 	url: `https://${string}`;
 }
 

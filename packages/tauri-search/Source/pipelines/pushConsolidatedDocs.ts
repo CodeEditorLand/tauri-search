@@ -35,5 +35,6 @@ export async function pushConsolidatedDocs(options: Partial<IEnv> = {}) {
 			tasks.push({ docId: doc.objectID, taskId: res.uid });
 		}
 	}
+
 	return { docs, tasks, errors };
 }

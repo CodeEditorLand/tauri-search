@@ -19,6 +19,7 @@ import { getEnv } from "~/utils/getEnv/node/getEnv";
 				} files r.changes.added since last check: ${r.changes.added.join(", ")}`,
 			);
 		}
+
 		if (r.changes.changed.length > 0) {
 			console.log(
 				`- ${
@@ -26,6 +27,7 @@ import { getEnv } from "~/utils/getEnv/node/getEnv";
 				} files changed since last check: ${r.changes.changed.join(", ")}`,
 			);
 		}
+
 		if (r.changes.removed.length > 0) {
 			console.log(
 				`- ${
@@ -33,6 +35,7 @@ import { getEnv } from "~/utils/getEnv/node/getEnv";
 				} files removed since last check: ${r.changes.removed.join(", ")}`,
 			);
 		}
+
 		if (
 			[r.changes.added, r.changes.changed, r.changes.removed].every(
 				(i) => i.length === 0,
