@@ -85,16 +85,27 @@ impl Selection {
 impl From<ElementRef<'_>> for Selection {
 	fn from(el:ElementRef) -> Self {
 		let mut selection = Selection::new();
+
 		selection.id = elements::id(&el);
+
 		selection.class = elements::class(&el);
+
 		selection.style = elements::style(&el);
+
 		selection.text = elements::text(&el);
+
 		selection.html = elements::html(&el);
+
 		selection.href = elements::href(&el);
+
 		selection.name = elements::name(&el);
+
 		selection.content = elements::content(&el);
+
 		selection.rel = elements::rel(&el);
+
 		selection.src = elements::src(&el);
+
 		selection.type_ = elements::type_(&el);
 
 		selection
@@ -286,6 +297,7 @@ impl ParsedDoc {
 	/// (or more specifically _at most_ one)
 	pub fn add_selector(mut self, name:&str, selector:&str) -> Self {
 		let selector = Selector::parse(selector).unwrap();
+
 		self.selectors.insert(name.to_string(), SelectorKind::Item(selector));
 
 		self
@@ -294,6 +306,7 @@ impl ParsedDoc {
 	/// Add a selector which is expect to bring a _list_ of results
 	pub fn add_selector_all(mut self, name:&str, selector:&str) -> Self {
 		let selector = Selector::parse(selector).unwrap();
+
 		self.selectors.insert(name.to_string(), SelectorKind::List(selector));
 
 		self
@@ -381,7 +394,9 @@ impl ParsedDoc {
 	/// structs.
 	pub async fn get_children(&self) -> Result<Vec<ParseResults>> {
 		let urls = self.get_child_urls();
+
 		let mut children:Vec<ParseResults> = vec![];
+
 		let mut stream = tokio_stream::iter(urls);
 
 		while let Some(v) = stream.next().await {
@@ -416,6 +431,7 @@ impl ParsedDoc {
 	/// then following into the children nodes (one level deep).
 	pub async fn results_graph(&self) -> Result<ParseResults> {
 		let mut current_page = self.results();
+
 		current_page.children = self.get_children().await?;
 
 		Ok(current_page)
