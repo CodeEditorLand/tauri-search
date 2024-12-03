@@ -2,7 +2,7 @@
 	"dependencies": {
 		"date-fns": "4.1.0",
 		"docs-searchbar.js": "2.5.0",
-		"inferred-types": "0.52.5",
+		"inferred-types": "0.52.6",
 		"markdown-it-expandable": "1.0.2",
 		"nprogress": "0.2.0",
 		"pinia": "2.2.8",
@@ -16,7 +16,7 @@
 		"@types/nprogress": "0.2.3",
 		"critters": "0.0.25",
 		"cross-env": "7.0.3",
-		"dotenv": "16.4.5",
+		"dotenv": "16.4.6",
 		"https-localhost": "4.7.1",
 		"jsdom": "25.0.1",
 		"markdown-it": "14.1.0",
