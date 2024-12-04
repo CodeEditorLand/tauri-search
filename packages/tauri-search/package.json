@@ -2,12 +2,12 @@
 	"bin": {},
 	"dependencies": {
 		"@types/html-to-text": "9.0.4",
-		"axios": "1.7.8",
-		"dotenv": "16.4.6",
+		"axios": "1.7.9",
+		"dotenv": "16.4.7",
 		"fast-glob": "3.3.2",
 		"gray-matter": "4.0.3",
 		"html-to-text": "9.0.5",
-		"inferred-types": "0.52.6",
+		"inferred-types": "0.52.9",
 		"native-dash": "1.25.0",
 		"simple-markdown-2": "0.7.5"
 	},
