@@ -5,7 +5,7 @@
 		"inferred-types": "0.52.9",
 		"markdown-it-expandable": "1.0.2",
 		"nprogress": "0.2.0",
-		"pinia": "2.2.8",
+		"pinia": "2.3.0",
 		"prism-theme-vars": "0.2.5",
 		"tauri-search": "workspace:*"
 	},
