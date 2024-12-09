@@ -1,10 +1,5 @@
 {
-	"dependencies": {},
-	"devDependencies": {
-		"changeset": "0.2.6",
-		"npm-run-all": "4.1.5"
-	},
-	"name": "tauri-search-monorepo",
+	"name": "@codeeditorland/search-monorepo",
 	"scripts": {
 		"build": "run-p build:*",
 		"build:cli": "pnpm -C ./packages/tauri-search run build:cli",
@@ -55,5 +50,10 @@
 		"watch:prep": "pnpm -C ./packages/tauri-search run build:npm",
 		"watch:rest": "run-p watch:tauri-search watch:docs",
 		"watch:tauri-search": "pnpm -C ./packages/tauri-search run watch"
+	},
+	"dependencies": {},
+	"devDependencies": {
+		"changeset": "0.2.6",
+		"npm-run-all": "4.1.5"
 	}
 }
