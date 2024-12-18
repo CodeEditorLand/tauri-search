@@ -3,7 +3,7 @@ use std::{
 	fmt::{self, Display, Formatter},
 };
 
-use anyhow::{anyhow, Error, Result};
+use anyhow::{Error, Result, anyhow};
 use lazy_static::lazy_static;
 use regex::Regex;
 use scraper::{ElementRef, Html, Selector};
